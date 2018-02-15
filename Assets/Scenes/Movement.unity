@@ -125,6 +125,64 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400008, guid: 69b118a7bcbc75b469bd2c0744b6d6d1, type: 3}
   m_PrefabInternal: {fileID: 1686295074}
+--- !u!1 &158862219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 158862222}
+  - component: {fileID: 158862221}
+  - component: {fileID: 158862220}
+  m_Layer: 0
+  m_Name: Pathfinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &158862220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 158862219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9cad5738d66feb47ae99a64afd099e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayGridGizmos: 1
+  unwalkableMask:
+    serializedVersion: 2
+    m_Bits: 256
+  gridWorldSize: {x: 30, y: 30}
+  nodeRadius: 0.5
+--- !u!114 &158862221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 158862219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a9795771c6cd7488ca50f084201f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &158862222
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 158862219}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &203535847
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d4671a220a68d4d9ee8c8abb9e297e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowdownFactor: 4
+  slowdownFactor: 2
 --- !u!4 &203535849
 Transform:
   m_ObjectHideFlags: 0
@@ -164,7 +222,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &204578846
 GameObject:
@@ -4348,6 +4406,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300004, guid: 7f8c58c523ad1304eaf475c5e6eaf76e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af3aad377f61ccc43bda0a9541167869, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f8c58c523ad1304eaf475c5e6eaf76e, type: 3}
   m_IsPrefabParent: 0
@@ -4616,7 +4678,7 @@ GameObject:
   - component: {fileID: 1419868337}
   - component: {fileID: 1419868336}
   m_Layer: 10
-  m_Name: Cube
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4686,7 +4748,7 @@ Transform:
   m_LocalScale: {x: 0.7, y: 1.5, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1584825235
 GameObject:
@@ -4790,7 +4852,7 @@ MonoBehaviour:
   runSpeed: 2.5
   viewCamera: {fileID: 909549055}
   turnSmoothTime: 0.2
-  slowdownPlayerFactor: 2
+  slowdownPlayerFactor: 1.5
   msBetweenShots: 170
   shoulderTrans: {fileID: 1808600767}
   rightShoulder: {fileID: 11729951}
@@ -4894,6 +4956,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 69b118a7bcbc75b469bd2c0744b6d6d1, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8964140da9d983468e733cdee389c8a, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 69b118a7bcbc75b469bd2c0744b6d6d1, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 69b118a7bcbc75b469bd2c0744b6d6d1, type: 3}
@@ -4945,7 +5011,7 @@ MonoBehaviour:
   muzzle: {fileID: 658965642}
   projectile: {fileID: 114891614826731344, guid: 3eb3cf95732573848b9f7e6cb2c2e7b6,
     type: 2}
-  muzzleVelocity: 25
+  muzzleVelocity: 50
   SpreadRange: 0.1
 --- !u!1001 &1714104436
 Prefab:
@@ -5084,7 +5150,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0a5b384078fe03a47afd33969f0f192c, type: 2}
+  - {fileID: 2100000, guid: 6e35dd99037a47b45ae2a92ff3a390bf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

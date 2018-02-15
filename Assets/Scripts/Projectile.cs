@@ -19,9 +19,11 @@ public class Projectile : MonoBehaviour {
 	
 	void Update () {
 		trail.enabled = Time.timeScale != 1f ? true : false;
-		float moveDistance = Time.deltaTime * speed;
-		CheckCollisions (moveDistance);
-		transform.Translate (Vector3.right * moveDistance);
+    if (speed != 0) {
+		  float moveDistance = Time.deltaTime * speed;
+		  CheckCollisions (moveDistance);
+		  transform.Translate (Vector3.right * moveDistance);
+    }
     // transform.Translate (spreadVector * moveDistance);
     // transform.Rotate(spreadVector);
 	}
@@ -40,7 +42,7 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnHitObject(Collider c, Vector3 hitPoint, Vector3 hitNormal) {
-    GameObject.Destroy (gameObject);
+    speed = 0;
 		Transform hitParticle = Instantiate(Spark, hitPoint, Quaternion.FromToRotation (Vector3.forward, hitNormal)) as Transform;
 		Destroy(hitParticle.gameObject, 1f);
 	}
