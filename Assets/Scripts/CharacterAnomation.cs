@@ -186,8 +186,6 @@ public class CharacterAnomation : MonoBehaviour {
       if (attackState) {
         gunController.Shoot();
       }
-    } else {
-      Debug.Log(attackJourney - Time.time);
     }
 
     if (attackState) {

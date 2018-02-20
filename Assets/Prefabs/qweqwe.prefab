@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 3328
   speed: 10
   Spark: {fileID: 4879796221224488, guid: 320e3c935d08ac4468eab6fe74cec4f0, type: 2}
   lifetime: 3

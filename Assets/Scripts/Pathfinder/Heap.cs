@@ -95,8 +95,6 @@ public class Heap<T> where T : IHeapItem<T> {
 		itemB.HeapIndex = itemAIndex;
 	}
 	
-	
-	
 }
 
 public interface IHeapItem<T> : IComparable<T> {
