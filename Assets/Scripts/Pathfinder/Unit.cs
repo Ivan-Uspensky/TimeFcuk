@@ -13,18 +13,43 @@ public class Unit : MonoBehaviour {
 	public float stoppingDst = 10;
 
 	//Behave variables
-  public Transform CoverZero;
-  public Transform covers;
-  Node childNode;
-	Node previousChildNode;
+  // public Transform CoverZero;
+  // public Transform covers;
+  // Node childNode;
+	// Node previousChildNode;
   Vector3 target;
-  CustomGrid grid;
+  // CustomGrid grid;
+	bool targetIsNear = false;
 
 	Path path;
 
 	void Start() {
-		grid = GameObject.Find ("Pathfinder").GetComponent<CustomGrid>();
+		// grid = GameObject.Find ("Pathfinder").GetComponent<CustomGrid>();
     StartCoroutine (UpdatePath ());
+	}
+
+	void OnTriggerEnter(Collider other) {
+    
+		Debug.Log(other.gameObject.layer);
+
+		if (other.gameObject.layer == 9) {
+    	targetIsNear = true;
+    }
+  }
+  void OnTriggerExit(Collider other) {
+    targetIsNear = false;
+	}
+
+	void OnCollisionEnter(Collision other) {
+    
+		Debug.Log(other.gameObject.layer);
+
+		if (other.gameObject.layer == 9) {
+    	targetIsNear = true;
+    }
+  }
+  void OnCollisionExit(Collision other) {
+    targetIsNear = false;
 	}
 
   Vector3 BehaveModel() {
@@ -115,14 +140,21 @@ public class Unit : MonoBehaviour {
 
 			if (followingPath) {
 
-				if (pathIndex >= path.slowDownIndex && stoppingDst > 0) {
-					speedPercent = Mathf.Clamp01 (path.turnBoundaries [path.finishLineIndex].DistanceFromPoint (pos2D) / stoppingDst);
-					if (speedPercent < 0.01f) {
-						followingPath = false;
-					}
-				}
+				// if (pathIndex >= path.slowDownIndex && stoppingDst > 0) {
+				// 	speedPercent = Mathf.Clamp01 (path.turnBoundaries [path.finishLineIndex].DistanceFromPoint (pos2D) / stoppingDst);
+				// 	if (speedPercent < 0.01f) {
+				// 		followingPath = false;
+				// 	}
+				// }
+				Quaternion targetRotation;
 
-				Quaternion targetRotation = Quaternion.LookRotation (path.lookPoints [pathIndex] - transform.position);
+				if (!targetIsNear) {
+					targetRotation = Quaternion.LookRotation (path.lookPoints [pathIndex] - transform.position);
+					Debug.Log("usual rotation" + targetRotation);
+				} else {
+					targetRotation = Quaternion.LookRotation (target - transform.position);
+					Debug.Log("pointed rotation" + targetRotation);
+				}
 				transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
 				transform.Translate (Vector3.forward * Time.deltaTime * speed * speedPercent, Space.Self);
 			}
