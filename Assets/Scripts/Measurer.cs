@@ -29,10 +29,17 @@ public class Measurer : MonoBehaviour {
       }
     }
 
-    DummyPointer.transform.position = closestCover.position + new Vector3(0f,2.5f,0f);
+    DummyPointer.transform.position = closestCover.position + new Vector3(0f,1.3f,0f);
     Vector3 pos = (closestCover.position - transform.position).normalized * offsetDistance;
     RedDot.transform.position = new Vector3(closestCover.position.x + pos.x, transform.position.y, closestCover.position.z + pos.z);
 	}
+
+	// void OnTriggerEnter(Collider other) {
+	// 	Debug.Log("Dunmmy is triggered by" + other.gameObject.layer);
+  // }
+  // void OnTriggerExit(Collider other) {
+  //   Debug.Log("Dunmmy is no longer triggered");
+	// }
 
   void OnGUI () {
     GUI.Box(new Rect(10,10,150,120), "Distance");

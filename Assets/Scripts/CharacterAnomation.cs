@@ -25,7 +25,7 @@ public class CharacterAnomation : MonoBehaviour {
   bool slideState;
   bool attackState;
   bool timeState;
-  float strafeState;
+  // float strafeState;
 
   float attackJourney;
   public float slowdownPlayerFactor = 2f;
@@ -34,7 +34,7 @@ public class CharacterAnomation : MonoBehaviour {
 
   LayerMask layerMask;
   Transform modelTrans;
-  PlayerController controller;
+  // PlayerController controller;
 
   public Transform shoulderTrans;
   public Transform rightShoulder;
@@ -52,7 +52,7 @@ public class CharacterAnomation : MonoBehaviour {
   GunController gunController;
 
   Vector3 moveInput;
-  Vector3 moveVelocity;
+  // Vector3 moveVelocity;
   
   Animator animator;
   Vector3 direction;
@@ -61,7 +61,7 @@ public class CharacterAnomation : MonoBehaviour {
   void Start () {
     
     animator = GetComponentInChildren<Animator>();
-    controller = GetComponent<PlayerController> ();
+    // controller = GetComponent<PlayerController> ();
     gunController = GetComponent<GunController>();
     timeState = false;
     // collider = GetComponent<BoxCollider>();
@@ -74,7 +74,7 @@ public class CharacterAnomation : MonoBehaviour {
   void Update () {
 
     moveInput = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));
-    moveVelocity = moveInput.normalized * runSpeed;
+    // moveVelocity = moveInput.normalized * runSpeed;
 
     // Debug.Log(moveInput);
     // controller.Move(moveVelocity);
@@ -123,11 +123,11 @@ public class CharacterAnomation : MonoBehaviour {
     if (moveInput == Vector3.right) {
       animationState = 0.8f;
     }
-    if (moveInput == new Vector3(Mathf.Abs(1),0,1)) {
-      strafeState = moveInput.x;
-    } else {
-      strafeState = 0;
-    }
+    // if (moveInput == new Vector3(Mathf.Abs(1),0,1)) {
+    //   strafeState = moveInput.x;
+    // } else {
+    //   strafeState = 0;
+    // }
     // if (slideState && moveInput != Vector3.zero) {
     if (slideState) {
       animationState = 1f;

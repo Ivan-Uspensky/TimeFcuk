@@ -9,16 +9,16 @@ public class Machinegun : MonoBehaviour {
 	// public float msBetweenShots = 100;
 	public float muzzleVelocity = 53;
 
-	public float SpreadRange = 0.1f;
-  Vector3 spreadVector;
+	// public float SpreadRange = 0.1f;
+  // Vector3 spreadVector;
 	
 	float nextShotTime;
 
   public void Start() {
-    float spreadX = Random.Range (-SpreadRange, SpreadRange);
-		float spreadY = Random.Range (-SpreadRange, SpreadRange);
-    float spreadZ = Random.Range (-SpreadRange, SpreadRange);
-		spreadVector = new Vector3(spreadX, spreadY, spreadZ);
+    // float spreadX = Random.Range (-SpreadRange, SpreadRange);
+		// float spreadY = Random.Range (-SpreadRange, SpreadRange);
+    // float spreadZ = Random.Range (-SpreadRange, SpreadRange);
+		// spreadVector = new Vector3(spreadX, spreadY, spreadZ);
   }
 
 	public void Shoot() {

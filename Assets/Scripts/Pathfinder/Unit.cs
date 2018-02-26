@@ -12,83 +12,61 @@ public class Unit : MonoBehaviour {
 	public float turnDst = 5;
 	public float stoppingDst = 10;
 
+	public Transform RealPlayer;
+	public float attentionDistance = 10;
+	Transform body;
+	Vector3 target;
+	bool targetIsNear = false;
+	
+	Vector3 direction;
+	Animator animator;
+	float animationState;
+	
+	Path path;
+	
 	//Behave variables
   // public Transform CoverZero;
   // public Transform covers;
   // Node childNode;
 	// Node previousChildNode;
-  Vector3 target;
   // CustomGrid grid;
-	bool targetIsNear = false;
-
-	Path path;
+	
+	
 
 	void Start() {
-		// grid = GameObject.Find ("Pathfinder").GetComponent<CustomGrid>();
     StartCoroutine (UpdatePath ());
+		animator = GetComponentInChildren<Animator>();
+		body = this.gameObject.transform.GetChild(0);
 	}
 
-	void OnTriggerEnter(Collider other) {
-    
-		Debug.Log(other.gameObject.layer);
-
-		if (other.gameObject.layer == 9) {
-    	targetIsNear = true;
-    }
-  }
-  void OnTriggerExit(Collider other) {
-    targetIsNear = false;
+	void FixedUpdate() {
+		targetIsNear = Vector3.Distance(target, transform.position) <= attentionDistance ? true : false;
+		if (targetIsNear) {
+			Vector3 lookPos = RealPlayer.position - body.position;
+			lookPos.y = 0;
+			Quaternion rotation = Quaternion.LookRotation(lookPos);
+			body.rotation = Quaternion.Slerp(body.rotation, rotation, Time.deltaTime * 10);
+		} 
+		else {
+			body.localRotation = Quaternion.identity;
+		}
 	}
 
-	void OnCollisionEnter(Collision other) {
-    
-		Debug.Log(other.gameObject.layer);
+	void Update() {
+		// Debug.Log(direction.magnitude + " : " + Vector3.zero);
+		
+		if (direction.magnitude > 0.1f) {
+      animationState = 0.25f;
+    } else {
+			animationState = 0;
+		}
 
-		if (other.gameObject.layer == 9) {
-    	targetIsNear = true;
-    }
-  }
-  void OnCollisionExit(Collision other) {
-    targetIsNear = false;
+		animator.SetFloat("animationState", animationState);
+
 	}
 
   Vector3 BehaveModel() {
-    // float currentDistance;
-		// float bestDistance = 999f;
-		// Vector3 closestCover = CoverZero.position;
     Vector3 closestCover = Player.position;
-
-    // if (previousChildNode == null){
-		// 	previousChildNode = grid.NodeFromWorldPoint(closestCover);
-		// }
-
-    // if (Vector3.Distance(Player.position, transform.position) > 5f) {
-    //   closestCover = Player.position + (Vector3.right * 5f);
-    // } else {
-      // foreach (Transform child in covers) {
-			// 	currentDistance = Vector3.Distance(Player.position, child.position);
-			// 	childNode = grid.NodeFromWorldPoint(child.position);
-			// 	if (currentDistance < bestDistance) {
-			// 		closestCover = child.position;
-			// 		bestDistance = currentDistance;
-			// 		previousChildNode = childNode;
-
-      //     if (Player.position.x - child.position.x < 0) {
-      //       closestCover.x += 0.5f;
-      //     } else {
-      //       closestCover.x -= 0.5f;
-      //     }
-        
-      //     if (Player.position.z - child.position.z < 0) {
-      //       closestCover.z += 0.5f;
-      //     } else {
-      //       closestCover.x -= 0.5f;
-      //     }
-			// 	}
-			// }
-
-    // }
-
     return closestCover;
   }
 
@@ -111,7 +89,7 @@ public class Unit : MonoBehaviour {
 
 		while (true) {
       target = BehaveModel();
-      yield return new WaitForSeconds (minPathUpdateTime);
+			yield return new WaitForSeconds (minPathUpdateTime);
       if ((target - targetPosOld).sqrMagnitude > sqrMoveThreshold) {
 				PathRequestManager.RequestPath (new PathRequest(transform.position, target, OnPathFound));
 				targetPosOld = target;
@@ -139,28 +117,13 @@ public class Unit : MonoBehaviour {
 			}
 
 			if (followingPath) {
-
-				// if (pathIndex >= path.slowDownIndex && stoppingDst > 0) {
-				// 	speedPercent = Mathf.Clamp01 (path.turnBoundaries [path.finishLineIndex].DistanceFromPoint (pos2D) / stoppingDst);
-				// 	if (speedPercent < 0.01f) {
-				// 		followingPath = false;
-				// 	}
-				// }
 				Quaternion targetRotation;
-
-				if (!targetIsNear) {
-					targetRotation = Quaternion.LookRotation (path.lookPoints [pathIndex] - transform.position);
-					Debug.Log("usual rotation" + targetRotation);
-				} else {
-					targetRotation = Quaternion.LookRotation (target - transform.position);
-					Debug.Log("pointed rotation" + targetRotation);
-				}
+				targetRotation = Quaternion.LookRotation (path.lookPoints [pathIndex] - transform.position);
+				direction = path.lookPoints [pathIndex] - transform.position;
 				transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
-				transform.Translate (Vector3.forward * Time.deltaTime * speed * speedPercent, Space.Self);
+				transform.Translate (Vector3.forward * Time.deltaTime * speed, Space.Self);
 			}
-
 			yield return null;
-
 		}
 	}
 
