@@ -21,6 +21,11 @@ public class Unit : MonoBehaviour {
 	Vector3 direction;
 	Animator animator;
 	float animationState;
+	Quaternion targetRotation;
+	Vector3 unitDirection;
+	Vector3 lookDirection;
+	float angle;
+	public Transform spine;
 	
 	Path path;
 	
@@ -30,9 +35,7 @@ public class Unit : MonoBehaviour {
   // Node childNode;
 	// Node previousChildNode;
   // CustomGrid grid;
-	
-	
-
+ 
 	void Start() {
     StartCoroutine (UpdatePath ());
 		animator = GetComponentInChildren<Animator>();
@@ -40,12 +43,19 @@ public class Unit : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		targetIsNear = Vector3.Distance(target, transform.position) <= attentionDistance ? true : false;
+		targetIsNear = Vector3.Distance(RealPlayer.position, transform.position) <= attentionDistance ? true : false;
+		
 		if (targetIsNear) {
-			Vector3 lookPos = RealPlayer.position - body.position;
-			lookPos.y = 0;
-			Quaternion rotation = Quaternion.LookRotation(lookPos);
+			lookDirection = RealPlayer.position - body.position;
+			lookDirection.y = 0;
+			
+			angle = Vector3.Angle(unitDirection.normalized, lookDirection.normalized);
+			Debug.Log(unitDirection.normalized + " : " + lookDirection.normalized);
+			Quaternion rotation = Quaternion.LookRotation(lookDirection);
+			// Quaternion rotation = Quaternion.Euler(lookDirection);
 			body.rotation = Quaternion.Slerp(body.rotation, rotation, Time.deltaTime * 10);
+			// spine.rotation = Quaternion.Slerp(body.rotation, rotation, Time.deltaTime * 10);
+
 		} 
 		else {
 			body.localRotation = Quaternion.identity;
@@ -54,9 +64,22 @@ public class Unit : MonoBehaviour {
 
 	void Update() {
 		// Debug.Log(direction.magnitude + " : " + Vector3.zero);
-		
+		Vector3 side = unitDirection.normalized - lookDirection.normalized;
 		if (direction.magnitude > 0.1f) {
-      animationState = 0.25f;
+      if (angle > 50) {
+				if (side.x >= 0) {
+					animationState = 0.75f;
+				} else {
+					animationState = 1;
+				}
+			}
+			if (angle <= 50) {
+				// if (side.z >= 0) {
+					animationState = 0.25f;
+				// } else {
+				// 	animationState = 0.5f;
+				// }
+			}
     } else {
 			animationState = 0;
 		}
@@ -117,8 +140,11 @@ public class Unit : MonoBehaviour {
 			}
 
 			if (followingPath) {
-				Quaternion targetRotation;
+				unitDirection = path.lookPoints [pathIndex] - transform.position;
 				targetRotation = Quaternion.LookRotation (path.lookPoints [pathIndex] - transform.position);
+				
+
+
 				direction = path.lookPoints [pathIndex] - transform.position;
 				transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
 				transform.Translate (Vector3.forward * Time.deltaTime * speed, Space.Self);
@@ -131,5 +157,9 @@ public class Unit : MonoBehaviour {
 		if (path != null) {
 			path.DrawWithGizmos ();
 		}
+
+		Debug.DrawLine(transform.position, transform.position + unitDirection.normalized, Color.red, 0.1f, false);
+		Debug.DrawLine(transform.position, transform.position + lookDirection.normalized, Color.yellow, 0.1f, false);
+
 	}
 }

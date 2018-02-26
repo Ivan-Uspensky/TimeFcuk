@@ -260,7 +260,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &158862223
 MonoBehaviour:
@@ -320,7 +320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &204578846
 GameObject:
@@ -524,7 +524,7 @@ Transform:
   m_LocalScale: {x: 60, y: 5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &425426212
 GameObject:
@@ -608,7 +608,7 @@ Transform:
   m_LocalScale: {x: 60, y: 5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &463231471 stripped
 Transform:
@@ -962,7 +962,7 @@ Transform:
   m_LocalScale: {x: 3, y: 1.2, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &708319455
 MeshRenderer:
@@ -1136,7 +1136,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &834376413
 GameObject:
@@ -1211,7 +1211,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &909549056
 AudioListener:
@@ -4860,7 +4860,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &1024839280
 Prefab:
@@ -5193,7 +5193,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4711911487545298, guid: dd372dd84391523459fe97b43ef1407b, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1007672487720666, guid: dd372dd84391523459fe97b43ef1407b, type: 2}
       propertyPath: m_Name
@@ -5420,7 +5420,7 @@ Transform:
   m_LocalScale: {x: 59, y: 5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1317973701
 GameObject:
@@ -5504,7 +5504,7 @@ Transform:
   m_LocalScale: {x: 59, y: 5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1322246386
 GameObject:
@@ -5585,7 +5585,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1337448263
 GameObject:
@@ -5851,6 +5851,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69b118a7bcbc75b469bd2c0744b6d6d1, type: 3}
   m_IsPrefabParent: 0
+--- !u!4 &1500492634 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400038, guid: 69b118a7bcbc75b469bd2c0744b6d6d1, type: 3}
+  m_PrefabInternal: {fileID: 1479396882}
 --- !u!1 &1523096875
 GameObject:
   m_ObjectHideFlags: 0
@@ -5939,7 +5943,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1553761417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5975,7 +5979,7 @@ BoxCollider:
   m_GameObject: {fileID: 1553761417}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5993,11 +5997,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1553761417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.94, y: 0.95, z: -7.69}
-  m_LocalScale: {x: 1, y: 1.9, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1584825236}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1584825235
 GameObject:
@@ -6033,8 +6037,9 @@ Transform:
   m_Children:
   - {fileID: 26848847}
   - {fileID: 1808600767}
+  - {fileID: 1553761422}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1584825237
 BoxCollider:
@@ -6061,7 +6066,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &1584825239
 MonoBehaviour:
@@ -6098,7 +6103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17776347471f294489657accba55da31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2.5
+  runSpeed: 4
   viewCamera: {fileID: 909549055}
   turnSmoothTime: 0.2
   slowdownPlayerFactor: 1.5
@@ -6650,12 +6655,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 463231471}
-  speed: 2
+  speed: 4
   turnSpeed: 8
   turnDst: 1
   stoppingDst: 0
   RealPlayer: {fileID: 1553761422}
   attentionDistance: 10
+  spine: {fileID: 1500492634}
 --- !u!114 &1732081119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6707,7 +6713,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1 &1801567762
 GameObject:
@@ -6830,7 +6836,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4711911487545298, guid: dd372dd84391523459fe97b43ef1407b, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1007672487720666, guid: dd372dd84391523459fe97b43ef1407b, type: 2}
       propertyPath: m_Name
@@ -6963,7 +6969,7 @@ Transform:
   m_LocalScale: {x: 6, y: 1, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2120099284 stripped
 Transform:

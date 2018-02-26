@@ -101,11 +101,11 @@ public class CharacterAnomation : MonoBehaviour {
     if (Input.GetKeyDown(KeyCode.Mouse1)) {
       if (!timeState) {
         timeManager.DoSlow();
-        runSpeed = runSpeed * timeManager.slowdownFactor / slowdownPlayerFactor;
+        currentSpeed = runSpeed * timeManager.slowdownFactor / slowdownPlayerFactor;
         animator.speed = timeManager.slowdownFactor / slowdownPlayerFactor;
       } else {
         timeManager.DoFast();
-        runSpeed = 2.5f;
+        currentSpeed = runSpeed;
         animator.speed = 1;
       }
       timeState = !timeState;
