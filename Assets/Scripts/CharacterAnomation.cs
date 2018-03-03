@@ -106,7 +106,7 @@ public class CharacterAnomation : MonoBehaviour {
       } else {
         timeManager.DoFast();
         currentSpeed = runSpeed;
-        animator.speed = 1;
+        animator.speed = 1.6f;
       }
       timeState = !timeState;
     }
