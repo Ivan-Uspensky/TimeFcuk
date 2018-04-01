@@ -100,22 +100,22 @@ public class Unit : MonoBehaviour {
     closestCover = followTarget.transform.position;
 
     // Debug.Log((transform.position - followTarget.position).sqrMagnitude);
-    if ((transform.position - followTarget.transform.position).sqrMagnitude < 0.8f ) {
+    // if ((transform.position - followTarget.transform.position).sqrMagnitude < 0.8f ) {
       // Debug.Log("ololo1");
-      bestDistance = 9999f;
-      foreach (Transform child in Covers) {
-		    currentDistance = (transform.position - child.position).sqrMagnitude;
+      // bestDistance = 9999f;
+      // foreach (Transform child in Covers) {
+		  //   currentDistance = (transform.position - child.position).sqrMagnitude;
 			  // Debug.Log("currentDistance: " + currentDistance);
-        if (currentDistance < bestDistance && child.position != coverPosition.currentCoverPosition) {
-          closestCover = child.position;
-				  bestDistance = currentDistance;
-        }
-      }
-      Vector3 pos = (closestCover - RealPlayer.transform.position).normalized * 2;
-      closestCover = new Vector3(closestCover.x + pos.x, transform.position.y, closestCover.z + pos.z);
+      //   if (currentDistance < bestDistance && child.position != coverPosition.currentCoverPosition) {
+      //     closestCover = child.position;
+			// 	  bestDistance = currentDistance;
+      //   }
+      // }
+      // Vector3 pos = (closestCover - RealPlayer.transform.position).normalized * 2;
+      // closestCover = new Vector3(closestCover.x + pos.x, transform.position.y, closestCover.z + pos.z);
     
       // Debug.Log(closestCover + " : " + followTarget.position);
-    }
+    // }
     
     // Debug.Log(closestCover + " : " + followTarget.transform.position);
     return closestCover;
@@ -189,8 +189,8 @@ public class Unit : MonoBehaviour {
 		Debug.DrawLine(transform.position, transform.position + unitDirection.normalized, Color.red, 0, false);
 		Debug.DrawLine(transform.position, transform.position + lookDirection.normalized, Color.yellow, 0, false);
 
-    Gizmos.color = Color.green;
-    Gizmos.DrawCube(closestCover, Vector3.one);
+    // Gizmos.color = Color.green;
+    // Gizmos.DrawCube(closestCover, Vector3.one);
 
 	}
 
