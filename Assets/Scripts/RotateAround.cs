@@ -5,6 +5,7 @@ using UnityEngine;
 public class RotateAround : MonoBehaviour {
 
 	public Transform OrbitalTarget;
+	public int rotateSpeed = 30;
 
 	void Start () {
 		
@@ -15,7 +16,7 @@ public class RotateAround : MonoBehaviour {
 	}
 
   void OrbitAround() {
-    transform.RotateAround(OrbitalTarget.position, Vector3.up, Time.deltaTime * 30);
+    transform.RotateAround(OrbitalTarget.position, Vector3.up, Time.deltaTime * rotateSpeed);
   }
 
   void OnDrawGizmos() {
