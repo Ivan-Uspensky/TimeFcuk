@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4849210302713640}
   - component: {fileID: 33015285103919634}
-  - component: {fileID: 65603723120846844}
   - component: {fileID: 23984518098844330}
   - component: {fileID: 114673064709782252}
   m_Layer: 0
@@ -84,18 +83,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959969581992306}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65603723120846844
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1959969581992306}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114673064709782252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,3 +99,4 @@ MonoBehaviour:
     m_Bits: 256
   speed: 100
   Spark: {fileID: 4992074849553736, guid: bc1feca8e73b1494db458dcf121fe061, type: 2}
+  lifetime: 3

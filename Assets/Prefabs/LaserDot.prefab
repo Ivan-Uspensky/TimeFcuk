@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4711911487545298}
   - component: {fileID: 33222648497043218}
-  - component: {fileID: 135139259401020134}
   - component: {fileID: 23788865166153702}
   m_Layer: 0
   m_Name: LaserDot
@@ -83,15 +82,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007672487720666}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &135139259401020134
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1007672487720666}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
