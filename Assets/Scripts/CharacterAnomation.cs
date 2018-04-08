@@ -68,7 +68,7 @@ public class CharacterAnomation : MonoBehaviour {
 
     rsp = new GameObject();
     rsp.name = transform.root.name + " Right Shoulder IK Helper";
-    attackJourney = 0.7f;
+    // attackJourney = 0.7f;
   }
   
   void Update () {
@@ -172,28 +172,17 @@ public class CharacterAnomation : MonoBehaviour {
     shoulderTrans.LookAt(lookPos);
     Vector3 rightShoulderPos = rightShoulder.TransformPoint(Vector3.zero);
 
-    // if (attackJourney <= msBetweenShots / 1000) {
-    //   attackJourney += Time.deltaTime * 2;
-    // } else {
-    //   // if (attackState) {
-    //   //   gunController.Shoot();  
-    //   // } 
-    //   attackJourney = 0f;
-    // }
-
-		if (Time.time > attackJourney) {
-			attackJourney = Time.time + msBetweenShots / 1000;
-      if (attackState) {
+    //shooting and shoulder positioning
+    if (attackState) {
+      if (Time.time > attackJourney) {
+        attackJourney = Time.time + msBetweenShots / 1000;
         gunController.Shoot();
       }
-    }
-
-    if (attackState) {
       rsp.transform.position = Vector3.Lerp(rightShoulderPos, new Vector3(rightShoulderPos.x, rightShoulderPos.y, rightShoulderPos.z  - 0.2f), attackJourney - Time.time);
     } else {
       rsp.transform.position = rightShoulderPos;
     }
-    
+
     rsp.transform.parent = transform;
     shoulderTrans.position = rsp.transform.position;
 
