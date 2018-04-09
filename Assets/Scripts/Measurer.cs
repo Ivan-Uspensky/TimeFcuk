@@ -4,45 +4,45 @@ using UnityEngine;
 
 public class Measurer : MonoBehaviour {
 
-  public GameObject UnitMovePointer;
-  public Transform SelectedCoverPointer;
+  public GameObject UnitMovePointer1;
+  public GameObject UnitMovePointer2;
   public Transform Covers;
   public Transform CoverZero;
   public float offsetDistance = 2f;
 
+  float firstHighestNumber;
+  float secondHighestNumber;
   float currentDistance;
-  float bestDistance = 9999f;
   Transform closestCover;
-  CurrentCoverPosition coverPosition;
 
-  int rot = 10;
+  Transform first;
+  Transform second;
 
-  // List<float> distanceValues = new List<float>();
-  // float[] distances = new float[Covers.Count];
-
-	void Start () {
-    coverPosition = UnitMovePointer.GetComponent<CurrentCoverPosition>();
-  }
-	
 	void Update () {
-    bestDistance = 9999f;
-    // distanceValues.Clear();
+    
+    firstHighestNumber = 9999f;
+    secondHighestNumber = 9999f;
+
     foreach (Transform child in Covers) {
 		  currentDistance = (transform.position - child.position).sqrMagnitude;
-			// distanceValues.Add(currentDistance);
-      if (currentDistance < bestDistance) {
-        closestCover = child;
-				bestDistance = currentDistance;
+      if (currentDistance < firstHighestNumber) {
+        first = child;
+				firstHighestNumber = currentDistance;
       }
     }
 
-    // Debug.Log(distanceValues + " : " + distanceValues.Count);
+    foreach (Transform child in Covers) {
+		  currentDistance = (transform.position - child.position).sqrMagnitude;
+      if (currentDistance < secondHighestNumber && currentDistance != firstHighestNumber) {
+        second = child;
+				secondHighestNumber = currentDistance;
+      }
+    }
 
-    // SelectedCoverPointer.transform.position = closestCover.position + new Vector3(0f,1.3f,0f);
-    
-    Vector3 pos = (closestCover.position - transform.position).normalized * offsetDistance;
-    UnitMovePointer.transform.position = new Vector3(closestCover.position.x + pos.x, transform.position.y, closestCover.position.z + pos.z);
-    // coverPosition.setPosition(closestCover.position);
+    Vector3 pos1 = (first.position - transform.position).normalized * offsetDistance;
+    Vector3 pos2 = (second.position - transform.position).normalized * offsetDistance;
+    UnitMovePointer1.transform.position = new Vector3(first.position.x + pos1.x, transform.position.y, first.position.z + pos1.z);
+    UnitMovePointer2.transform.position = new Vector3(second.position.x + pos2.x, transform.position.y, second.position.z + pos2.z);
   }
 
   // void OnGUI () {
