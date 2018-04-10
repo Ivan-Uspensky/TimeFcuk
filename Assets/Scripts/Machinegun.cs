@@ -6,8 +6,8 @@ public class Machinegun : MonoBehaviour {
 
 	public Transform muzzle;
 	public Projectile projectile;
-	// public float msBetweenShots = 100;
-	public float muzzleVelocity = 53;
+	public float msBetweenShots = 100;
+	public float muzzleVelocity = 50;
 
 	// public float SpreadRange = 0.1f;
   // Vector3 spreadVector;
@@ -32,5 +32,16 @@ public class Machinegun : MonoBehaviour {
       muzzleFlash.Play(true);
 			newProjectile.SetSpeed (muzzleVelocity);
 		// }
+	}
+
+	public void botShoot(Vector3 target) {
+		if (Time.time > nextShotTime) {
+			nextShotTime = Time.time + msBetweenShots / 1000;
+			Quaternion rotation = Quaternion.LookRotation(target);
+			// Debug.Log(rotation);
+			Projectile newProjectile = Instantiate(projectile, muzzle.position, rotation) as Projectile;
+      muzzleFlash.Play(true);
+			newProjectile.SetSpeed (muzzleVelocity);
+		}
 	}
 }

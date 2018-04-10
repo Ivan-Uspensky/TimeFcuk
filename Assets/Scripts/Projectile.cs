@@ -9,12 +9,15 @@ public class Projectile : MonoBehaviour {
 	public Transform Spark;
   public float lifetime = 3;
 	TrailRenderer trail;
+  MeshRenderer mesh;
 
 	void Start() {
 		Destroy (gameObject, lifetime);
 
 		trail = GetComponent<TrailRenderer>();
 		trail.enabled = false;
+
+    mesh = GetComponentInChildren<MeshRenderer>();
 	}
 	
 	void Update () {
@@ -23,6 +26,8 @@ public class Projectile : MonoBehaviour {
 		  float moveDistance = Time.deltaTime * speed;
 		  CheckCollisions (moveDistance);
 		  transform.Translate (Vector3.right * moveDistance);
+    } else {
+      mesh.enabled = false;
     }
     // transform.Translate (spreadVector * moveDistance);
     // transform.Rotate(spreadVector);

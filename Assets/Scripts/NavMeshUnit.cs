@@ -73,6 +73,6 @@ public class NavMeshUnit : MonoBehaviour {
 		animator.SetFloat("animationState", animationState);
 
     //move with navmesh
-    agent.SetDestination(target.position);
+    // agent.SetDestination(target.position);
 	}
 }

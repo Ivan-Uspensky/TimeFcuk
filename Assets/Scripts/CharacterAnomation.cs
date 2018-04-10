@@ -92,7 +92,6 @@ public class CharacterAnomation : MonoBehaviour {
     if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.LeftAlt)) {
       // animator.SetBool("attackState", true);
       attackState = true;
-      // gunController.Shoot();
     } else {
       // animator.SetBool("attackState", false);
       attackState = false;

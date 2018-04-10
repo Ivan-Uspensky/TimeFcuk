@@ -28,4 +28,10 @@ public class GunController : MonoBehaviour {
 			equippedGun.Shoot();
 		}
 	}
+
+	public void botShoot(Vector3 target) {
+		if (equippedGun != null) {
+			equippedGun.botShoot(target);
+		}
+	}
 }
