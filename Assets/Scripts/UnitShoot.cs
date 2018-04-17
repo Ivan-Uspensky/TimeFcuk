@@ -18,22 +18,15 @@ public class UnitShoot : MonoBehaviour {
 		animator = GetComponentInChildren<Animator>();
 	}
 	
-	void Update () {
-    // if (Vector3.Distance(Player.position, transform.position) <= attentionDistance) {
-      
-    // float x_offset = (Mathf.Cos(Mathf.Deg2Rad * (source.eulerAngles.y)));
-    // float z_offset =(-Mathf.Sin(Mathf.Deg2Rad * (source.eulerAngles.y)));
-    // Physics.Raycast(toEdge_origin.position, new Vector3(x_offset,0,z_offset), out edge_hit, 1.5f);
-      
-      if (Physics.Raycast (source.position, source.TransformDirection(Vector3.forward), out hit)) {
-        if (hit.collider.gameObject == Player.gameObject) { // can see player
-          Debug.Log(Player.position + " " + hit.point);
-          gunController.botShoot(hit.point);
-        //   // animator.SetFloat("Blend", 1);
-      	}
+	void Update () {  
+    if (Physics.Raycast (source.position, source.TransformDirection(Vector3.forward), out hit)) {
+      if (hit.collider.gameObject == Player.gameObject) { // can see player
+        gunController.botShoot(hit.point);
+        animator.SetBool("attackState", true);
+      } else {
+        animator.SetBool("attackState", false);
       }
-      
-    // }
+    }
 	}
 
   void OnDrawGizmos() {

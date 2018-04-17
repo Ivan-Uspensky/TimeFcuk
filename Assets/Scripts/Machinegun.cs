@@ -38,12 +38,12 @@ public class Machinegun : MonoBehaviour {
 		if (Time.time > nextShotTime) {
 			nextShotTime = Time.time + msBetweenShots / 1000;
 			
-			float step = 10 * Time.deltaTime;
-			Vector3 newDir = Vector3.RotateTowards(muzzle.position, target, step, 0.0f);
-			Quaternion rotation = Quaternion.LookRotation(newDir);
+			// float step = 10 * Time.deltaTime;
+			// Vector3 newDir = Vector3.RotateTowards(muzzle.position, target, step, 0.0f);
+			// Quaternion rotation = Quaternion.LookRotation(newDir);
 
 			// Debug.Log(rotation);
-			Projectile newProjectile = Instantiate(projectile, muzzle.position, rotation) as Projectile;
+			Projectile newProjectile = Instantiate(projectile, muzzle.position, muzzle.rotation) as Projectile;
       muzzleFlash.Play(true);
 			newProjectile.SetSpeed (muzzleVelocity);
 		}

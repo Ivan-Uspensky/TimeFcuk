@@ -10,7 +10,9 @@ public class Projectile : MonoBehaviour {
   public float lifetime = 3;
 	TrailRenderer trail;
   MeshRenderer mesh;
-
+	public float spreadRange = 0.1f;
+	Vector3 spreadVector;
+	
 	void Start() {
 		Destroy (gameObject, lifetime);
 
@@ -18,6 +20,10 @@ public class Projectile : MonoBehaviour {
 		trail.enabled = false;
 
     mesh = GetComponentInChildren<MeshRenderer>();
+
+		float spreadY = Random.Range (-spreadRange, spreadRange);
+		float spreadZ = Random.Range (-spreadRange, spreadRange);
+		spreadVector = new Vector3(1, spreadY, spreadZ);
 	}
 	
 	void Update () {
@@ -25,7 +31,7 @@ public class Projectile : MonoBehaviour {
     if (speed != 0) {
 		  float moveDistance = Time.deltaTime * speed;
 		  CheckCollisions (moveDistance);
-		  transform.Translate (Vector3.right * moveDistance);
+		  transform.Translate (spreadVector * moveDistance);
     } else {
       mesh.enabled = false;
     }
