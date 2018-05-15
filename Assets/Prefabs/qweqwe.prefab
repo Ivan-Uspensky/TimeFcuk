@@ -255,6 +255,7 @@ MonoBehaviour:
   speed: 250
   Spark: {fileID: 4879796221224488, guid: 320e3c935d08ac4468eab6fe74cec4f0, type: 2}
   lifetime: 3
+  spreadRange: 0.03
 --- !u!198 &198838268377054876
 ParticleSystem:
   m_ObjectHideFlags: 1
