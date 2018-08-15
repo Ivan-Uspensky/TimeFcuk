@@ -11,7 +11,8 @@ public class UnitShoot : MonoBehaviour {
   public Transform weaponMuzzle;
   public Transform Player;
   public float attentionDistance = 10;
-  RaycastHit hit;
+  // RaycastHit hit;
+  bool targetIsNear = false;
 	
 	void Start () {
 		gunController = GetComponent<GunController>();
@@ -19,17 +20,23 @@ public class UnitShoot : MonoBehaviour {
 	}
 	
 	void Update () {  
-    if (Physics.Raycast (source.position, source.TransformDirection(Vector3.forward), out hit)) {
-      if (hit.collider.gameObject == Player.gameObject) { // can see player
-        gunController.botShoot(hit.point);
-        animator.SetBool("attackState", true);
-      } else {
-        animator.SetBool("attackState", false);
-      }
+    // if (Physics.Raycast (source.position, source.TransformDirection(Vector3.forward), out hit)) {
+    //   if (hit.collider.gameObject == Player.gameObject) { // can see player
+    //     gunController.botShoot(hit.point);
+    //     animator.SetBool("attackState", true);
+    //   } else {
+    //     animator.SetBool("attackState", false);
+    //   }
+    // }
+
+    targetIsNear = (Player.position - transform.position).sqrMagnitude <= attentionDistance * attentionDistance ? true : false;
+    if (targetIsNear) {
+      gunController.botShoot(Player.position);
+      animator.SetBool("attackState", true);
+    } else {
+      animator.SetBool("attackState", false);
     }
+
 	}
 
-  void OnDrawGizmos() {
-		Debug.DrawLine(source.position, hit.point, Color.red, 0, false);
-	}
 }

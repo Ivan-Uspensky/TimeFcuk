@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: c3ec34b459ae9544c8d283b9e7afb956
-timeCreated: 1526760560
-licenseType: Free
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: Cube
     100002: //RootNode
@@ -12,6 +10,7 @@ ModelImporter:
     400002: //RootNode
     400004: default
     2100000: Default_Prototype
+    2100002: defaultMat
     2300000: Cube
     2300002: default
     3300000: Cube
@@ -37,6 +36,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -68,6 +68,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

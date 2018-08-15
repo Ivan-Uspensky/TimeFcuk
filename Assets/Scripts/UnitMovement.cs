@@ -96,13 +96,13 @@ public class UnitMovement : MonoBehaviour {
 	}
 
 	void CoversMovement() {
-		Debug.Log(m_PathCurrent + "/" + m_Path.nodes.Count + "/" + m_Path.nodes[m_PathCurrent]);
+		// Debug.Log(m_PathCurrent + "/" + m_Path.nodes.Count + "/" + m_Path.nodes[m_PathCurrent]);
 		agent.SetDestination(m_Path.nodes[m_PathCurrent].transform.position);
 		if ((transform.position - m_Path.nodes[m_PathCurrent].transform.position).sqrMagnitude <= 0.25f) {
 			agent.ResetPath();
 			if (m_PathCurrent < m_Path.nodes.Count - 1) {
 				m_PathCurrent++;
-				Debug.Log("++: " + m_PathCurrent);
+				// Debug.Log("++: " + m_PathCurrent);
 			}
 		}
 	}
@@ -127,12 +127,12 @@ public class UnitMovement : MonoBehaviour {
 
   void RotationController() {
 		if (targetIsNear) {
-			// unitBody.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
-      spine.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
+			unitBody.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
+      // spine.LookAt(new Vector3(target.position.x, 2, target.position.z));
 		} 
 		else {
-			// unitBody.localRotation = Quaternion.identity;
-      spine.localRotation = Quaternion.identity;
+			unitBody.localRotation = Quaternion.identity;
+      // spine.localRotation = Quaternion.identity;
 		}
   }
 
@@ -143,6 +143,13 @@ public class UnitMovement : MonoBehaviour {
 		//animation selector
 		unitDirection = (transform.position - prevUnitPos).normalized;
     prevUnitPos = transform.position;
+
+    // if (targetIsNear) {
+    //   animator.SetBool("attackState", true);
+    // } else {
+    //   animator.SetBool("attackState", false);
+    // }
+
 		if (unitDirection.magnitude > 0.1f) {
 			
       // body strafe animation
