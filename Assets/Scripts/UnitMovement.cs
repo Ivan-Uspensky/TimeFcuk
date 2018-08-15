@@ -14,7 +14,7 @@ public class UnitMovement : MonoBehaviour {
 	
 	public bool isStopped = false;
 	public float animationState;
-	public float attentionDistance = 5;
+	public float attentionDistance;
 
 	int current;
 	Vector3 unitDirection;
@@ -62,7 +62,7 @@ public class UnitMovement : MonoBehaviour {
 		float dist = 100;
 		float temp = 0;
 		Node nearest = m_Graph.nodes[m_Graph.nodes.Count - 1];
-		for (int i = 0; i < m_Graph.nodes.Count; i++ ) {
+		for (int i = 0; i < m_Graph.nodes.Count - 1; i++ ) {
 			temp = (toObject.position - m_Graph.nodes[i].transform.position).sqrMagnitude;
 			if (temp < dist) {
 				dist = temp;
@@ -75,7 +75,7 @@ public class UnitMovement : MonoBehaviour {
 	void FixedUpdate() {
 		// model movement with navmesh methods
 		if (!targetIsNear) {
-			agent.SetDestination(paths[current].transform.position);
+			// agent.SetDestination(paths[current].transform.position);
 			Movement();
 		} else {
 			CoversGetPath();
@@ -100,7 +100,7 @@ public class UnitMovement : MonoBehaviour {
 		agent.SetDestination(m_Path.nodes[m_PathCurrent].transform.position);
 		if ((transform.position - m_Path.nodes[m_PathCurrent].transform.position).sqrMagnitude <= 0.25f) {
 			agent.ResetPath();
-			if (m_PathCurrent < m_Path.nodes.Count - 1) {
+			if (m_PathCurrent < m_Path.nodes.Count - 2) {
 				m_PathCurrent++;
 				// Debug.Log("++: " + m_PathCurrent);
 			}
@@ -116,7 +116,7 @@ public class UnitMovement : MonoBehaviour {
 		//circling between two destinations
 		if (agent.remainingDistance < 1 && agent.remainingDistance != 0) {
 			agent.ResetPath();
-			current = current == 0 ? 1 : 0;
+			// current = current == 0 ? 1 : 0;
 		}
 	}
 
