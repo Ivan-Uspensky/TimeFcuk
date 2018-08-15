@@ -21,16 +21,16 @@ public class Projectile : MonoBehaviour {
 
     mesh = GetComponentInChildren<MeshRenderer>();
 
+		float spreadX = Random.Range (-spreadRange, spreadRange);
 		float spreadY = Random.Range (-spreadRange, spreadRange);
-		float spreadZ = Random.Range (-spreadRange, spreadRange);
-		spreadVector = new Vector3(1, spreadY, spreadZ);
+		spreadVector = new Vector3(0, 0, 1);
 	}
 	
 	void Update () {
 		trail.enabled = Time.timeScale != 1f ? true : false;
     if (speed != 0) {
 		  float moveDistance = Time.deltaTime * speed;
-		  CheckCollisions (moveDistance);
+		  //CheckCollisions (moveDistance);
 		  transform.Translate (spreadVector * moveDistance);
     } else {
       mesh.enabled = false;
@@ -56,5 +56,15 @@ public class Projectile : MonoBehaviour {
     speed = 0;
 		Transform hitParticle = Instantiate(Spark, hitPoint, Quaternion.FromToRotation (Vector3.forward, hitNormal)) as Transform;
 		Destroy(hitParticle.gameObject, 1f);
+	}
+	
+	void OnCollisionEnter(Collision collision)
+	{
+		foreach (ContactPoint contact in collision.contacts)
+		{
+			speed = 0;
+			Transform hitParticle = Instantiate(Spark, contact.point, Quaternion.FromToRotation (Vector3.forward, contact.normal)) as Transform;
+			Destroy(hitParticle.gameObject, 1f);
+		}
 	}
 }
