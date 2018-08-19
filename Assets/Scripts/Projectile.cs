@@ -30,13 +30,11 @@ public class Projectile : MonoBehaviour {
 		trail.enabled = Time.timeScale != 1f ? true : false;
     if (speed != 0) {
 		  float moveDistance = Time.deltaTime * speed;
-		  //CheckCollisions (moveDistance);
+		  CheckCollisions (moveDistance);
 		  transform.Translate (spreadVector * moveDistance);
     } else {
       mesh.enabled = false;
     }
-    // transform.Translate (spreadVector * moveDistance);
-    // transform.Rotate(spreadVector);
 	}
 
 	public void SetSpeed(float newSpeed) {
@@ -58,13 +56,11 @@ public class Projectile : MonoBehaviour {
 		Destroy(hitParticle.gameObject, 1f);
 	}
 	
-	void OnCollisionEnter(Collision collision)
-	{
-		foreach (ContactPoint contact in collision.contacts)
-		{
-			speed = 0;
-			Transform hitParticle = Instantiate(Spark, contact.point, Quaternion.FromToRotation (Vector3.forward, contact.normal)) as Transform;
-			Destroy(hitParticle.gameObject, 1f);
-		}
-	}
+	// void OnCollisionEnter(Collision collision) {
+	// 	foreach (ContactPoint contact in collision.contacts) {
+	// 		speed = 0;
+	// 		Transform hitParticle = Instantiate(Spark, contact.point, Quaternion.FromToRotation (Vector3.forward, contact.normal)) as Transform;
+	// 		Destroy(hitParticle.gameObject, 1f);
+	// 	}
+	// }
 }

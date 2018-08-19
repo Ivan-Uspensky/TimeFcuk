@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof (Rigidbody))]
+// [RequireComponent (typeof (Rigidbody))]
 [RequireComponent (typeof(GunController))]
 public class PlayerController : MonoBehaviour {
 
 	Vector3 velocity;
-	Rigidbody myRigidbody;
+	// Rigidbody myRigidbody;
 
 	void Start () {
-		myRigidbody = GetComponent<Rigidbody> ();
+		// myRigidbody = GetComponent<Rigidbody> ();
 	}
 
 	public void Move(Vector3 _velocity) {
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		myRigidbody.MovePosition (myRigidbody.position + velocity * Time.fixedDeltaTime);
+		// myRigidbody.MovePosition (myRigidbody.position + velocity * Time.fixedDeltaTime);
 
 	}
 }

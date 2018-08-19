@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dec3543d-7bf0-4f57-a401-b50833db3ebe" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Assemble.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Assemble.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectile.cs" afterDir="false" />
+    </list>
+    <ignored path=".idea/.idea.TimeFcuk/" />
+    <ignored path="Assets/Plugins/" />
+    <ignored path="Assets/" />
+    <ignored path="Assets/Plugins.meta" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Projectile.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Projectile.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="855">
+              <caret line="59" column="4" lean-forward="true" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+              <folding>
+                <marker date="1534659142290" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534659142290" expanded="true" signature="120:1959" ph="{...}" />
+                <marker date="1534659142290" expanded="true" signature="352:669" ph="{...}" />
+                <marker date="1534659142290" expanded="true" signature="688:1055" ph="{...}" />
+                <marker date="1534659142290" expanded="true" signature="765:914" ph="{...}" />
+                <marker date="1534659142290" expanded="true" signature="960:1052" ph="/* transform.Translate (spreadVector * moveDistance); ... */" />
+                <marker date="1534659142290" expanded="true" signature="1095:1119" ph="{...}" />
+                <marker date="1534659142290" expanded="true" signature="1163:1403" ph="{...}" />
+                <marker date="1534659142290" expanded="true" signature="1342:1400" ph="{...}" />
+                <marker date="1534659142290" expanded="true" signature="1472:1655" ph="{...}" />
+                <marker date="1534659142290" expanded="true" signature="1702:1957" ph="{...}" />
+                <marker date="1534659142290" expanded="true" signature="1759:1954" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Machinegun.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Machinegun.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="9" column="31" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="31" />
+              <folding>
+                <marker date="1534366122629" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534366122629" expanded="true" signature="120:1534" ph="{...}" />
+                <marker date="1534366122629" expanded="true" signature="242:304" ph="/* public float SpreadRange = 0.1f; ... */" />
+                <marker date="1534366122629" expanded="true" signature="446:771" ph="{...}" />
+                <marker date="1534366122629" expanded="true" signature="452:700" ph="/* float spreadX = Random.Range (-SpreadRange, SpreadRange); ... */" />
+                <marker date="1534366122629" expanded="true" signature="794:1224" ph="{...}" />
+                <marker date="1534366122629" expanded="true" signature="798:888" ph="/* if (Time.time &gt; nextShotTime) { ... */" />
+                <marker date="1534366122629" expanded="true" signature="1264:1532" ph="{...}" />
+                <marker date="1534366122629" expanded="true" signature="1298:1529" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Machinegun.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterAnomation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ProCore/ProBuilder/About/Editor/pb_AboutWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MuzzleLookAt.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/MuzzleLookAt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Machinegun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Projectile.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1765" />
+    <option name="y" value="306" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="UnityExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+      <pane id="Scratches" />
+      <pane id="UnityExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="TimeFcuk" type="483dac07:UnityExplorerNode$Root" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="TimeFcuk" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-hidden-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-8" width="1096" height="1896" extended-state="6" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.1569966" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32992035" />
+      <window_info anchor="bottom" id="Unit Tests" order="7" weight="0.32992035" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3287827" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.04150579" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" order="7" weight="0.32992035" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[:WIP:]&#10;-bot shoots to target&#10;-bot chases target to &quot;last cover - 1&quot; position&#10;-some issues with hit detection and particles" />
+    <option name="LAST_COMMIT_MESSAGE" value="[:WIP:]&#10;-bot shoots to target&#10;-bot chases target to &quot;last cover - 1&quot; position&#10;-some issues with hit detection and particles" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Projectile.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="60" column="45" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="45" />
+          <folding>
+            <marker date="1534659142290" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534659142290" expanded="true" signature="120:1959" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="352:669" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="688:1055" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="765:914" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="960:1052" ph="/* transform.Translate (spreadVector * moveDistance); ... */" />
+            <marker date="1534659142290" expanded="true" signature="1095:1119" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1163:1403" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1342:1400" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1472:1655" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1702:1957" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1759:1954" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Machinegun.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <marker date="1534366122629" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534366122629" expanded="true" signature="120:1534" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="242:304" ph="/* public float SpreadRange = 0.1f; ... */" />
+            <marker date="1534366122629" expanded="true" signature="446:771" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="452:700" ph="/* float spreadX = Random.Range (-SpreadRange, SpreadRange); ... */" />
+            <marker date="1534366122629" expanded="true" signature="794:1224" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="798:888" ph="/* if (Time.time &gt; nextShotTime) { ... */" />
+            <marker date="1534366122629" expanded="true" signature="1264:1532" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="1298:1529" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Projectile.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <marker date="1534659142290" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534659142290" expanded="true" signature="120:1959" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="352:669" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="688:1055" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="765:914" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="960:1052" ph="/* transform.Translate (spreadVector * moveDistance); ... */" />
+            <marker date="1534659142290" expanded="true" signature="1095:1119" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1163:1403" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1342:1400" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1472:1655" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1702:1957" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1759:1954" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Machinegun.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <marker date="1534366122629" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534366122629" expanded="true" signature="120:1534" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="242:304" ph="/* public float SpreadRange = 0.1f; ... */" />
+            <marker date="1534366122629" expanded="true" signature="446:771" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="452:700" ph="/* float spreadX = Random.Range (-SpreadRange, SpreadRange); ... */" />
+            <marker date="1534366122629" expanded="true" signature="794:1224" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="798:888" ph="/* if (Time.time &gt; nextShotTime) { ... */" />
+            <marker date="1534366122629" expanded="true" signature="1264:1532" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="1298:1529" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/ProCore/ProBuilder/About/Editor/pb_AboutWindow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/CharacterAnomation.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2235">
+          <caret line="194" selection-start-line="8" selection-end-line="194" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MuzzleLookAt.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Machinegun.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <marker date="1534366122629" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534366122629" expanded="true" signature="120:1534" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="242:304" ph="/* public float SpreadRange = 0.1f; ... */" />
+            <marker date="1534366122629" expanded="true" signature="446:771" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="452:700" ph="/* float spreadX = Random.Range (-SpreadRange, SpreadRange); ... */" />
+            <marker date="1534366122629" expanded="true" signature="794:1224" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="798:888" ph="/* if (Time.time &gt; nextShotTime) { ... */" />
+            <marker date="1534366122629" expanded="true" signature="1264:1532" ph="{...}" />
+            <marker date="1534366122629" expanded="true" signature="1298:1529" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Projectile.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="59" column="4" lean-forward="true" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+          <folding>
+            <marker date="1534659142290" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534659142290" expanded="true" signature="120:1959" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="352:669" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="688:1055" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="765:914" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="960:1052" ph="/* transform.Translate (spreadVector * moveDistance); ... */" />
+            <marker date="1534659142290" expanded="true" signature="1095:1119" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1163:1403" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1342:1400" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1472:1655" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1702:1957" ph="{...}" />
+            <marker date="1534659142290" expanded="true" signature="1759:1954" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
