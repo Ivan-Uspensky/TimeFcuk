@@ -12,7 +12,7 @@ public class UnitMovement : MonoBehaviour {
 
   public Transform spine;
 	
-	public bool isStopped = false;
+	public bool isStopped;
 	public float animationState;
 	public float attentionDistance;
 
@@ -87,9 +87,9 @@ public class UnitMovement : MonoBehaviour {
 		if (target.position != prevTargetposition) {
 			start = GetNearestCover(transform);
 			end = GetNearestCover(target);
-			Debug.Log(start + " - " + end);
+			// Debug.Log(start + " - " + end);
 			m_Path = m_Graph.GetShortestPath(start, end);
-			Debug.Log(m_Path);
+			// Debug.Log(m_Path);
 			m_PathCurrent = 0;
 			prevTargetposition = target.position;
 		}
@@ -174,6 +174,13 @@ public class UnitMovement : MonoBehaviour {
 		}
 		//animate
 		animator.SetFloat("animationState", animationState);
+	}
+
+  void OnCollisionEnter(Collision collision) {
+	  Debug.Log(collision.contacts[0].otherCollider.gameObject.layer);
+    if (collision.contacts[0].otherCollider.gameObject.layer == 14) {
+      animator.SetBool("hitState", false);
+    }
 	}
 
 }

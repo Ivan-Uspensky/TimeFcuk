@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4365592046003532}
   - component: {fileID: 33412308506873332}
   - component: {fileID: 23938223559960762}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: fps-bullet (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114891614826731344}
   - component: {fileID: 96910037808242370}
   - component: {fileID: 65231572794992888}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: qweqwe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4581809796620950}
   - component: {fileID: 198838268377054876}
   - component: {fileID: 199907744388775988}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 9472
+    m_Bits: 11520
   speed: 250
   Spark: {fileID: 4992074849553736, guid: bc1feca8e73b1494db458dcf121fe061, type: 2}
   lifetime: 3

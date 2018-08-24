@@ -57,6 +57,7 @@ public class CharacterAnomation : MonoBehaviour {
   Animator animator;
   Vector3 direction;
   
+  public bool weaponRotation;
 
   void Start () {
     
@@ -168,7 +169,16 @@ public class CharacterAnomation : MonoBehaviour {
   }
 
   void HandleShoulder() {
-    shoulderTrans.LookAt(lookPos);
+    
+    if (weaponRotation) {
+      // shoulderTrans.Rotate(Vector3.right, 30f);
+      shoulderTrans.LookAt(lookPos);
+      shoulderTrans.rotation = Quaternion.Euler(30f,shoulderTrans.eulerAngles.y,shoulderTrans.eulerAngles.z);
+    } else {
+      // shoulderTrans.rotation = Quaternion.identity;
+      shoulderTrans.LookAt(lookPos);
+    }
+    
     Vector3 rightShoulderPos = rightShoulder.TransformPoint(Vector3.zero);
 
     //shooting and shoulder positioning
