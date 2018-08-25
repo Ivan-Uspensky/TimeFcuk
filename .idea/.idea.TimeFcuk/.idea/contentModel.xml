@@ -164,6 +164,10 @@
           <e p="botCameraPositioning.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
           <e p="CharacterAnomation.cs" t="Include" />
+          <e p="CharacterMovement" t="Include">
+            <e p="CharacterController.cs" t="Include" />
+            <e p="CharacterRotation.cs" t="Include" />
+          </e>
           <e p="CurrentCoverPosition.cs" t="Include" />
           <e p="Distort" t="Include">
             <e p="CubeSphere.cs" t="Include" />
