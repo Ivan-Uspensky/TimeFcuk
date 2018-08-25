@@ -167,6 +167,7 @@
           <e p="CharacterMovement" t="Include">
             <e p="CharacterController.cs" t="Include" />
             <e p="CharacterRotation.cs" t="Include" />
+            <e p="CharacterShoot.cs" t="Include" />
           </e>
           <e p="CurrentCoverPosition.cs" t="Include" />
           <e p="Distort" t="Include">

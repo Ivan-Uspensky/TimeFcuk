@@ -19,10 +19,12 @@ public class CharacterController : MonoBehaviour {
 	private float targetSpeed;
 	private Vector3 input;
 	private float targetRotation;
+	private float prevTargetRotation;
 	
 	void Start () {
 		animator = GetComponent<Animator>();
 		camera = Camera.allCameras[1].transform;
+		prevTargetRotation = camera.eulerAngles.y;
 	}
 	
 	void Update () {
@@ -30,6 +32,9 @@ public class CharacterController : MonoBehaviour {
 		
 		targetRotation = camera.eulerAngles.y;
 		transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turningSmoothTime);
+		
+		prevTargetRotation = targetRotation;
+		Debug.Log(targetRotation + " - " + prevTargetRotation);
 
 		targetSpeed = runSpeed * input.magnitude;
 		currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);

@@ -512,6 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewCamera: {fileID: 0}
+  ikActive: 1
   lerpRate: 15
   updateLookPosThreshold: 1
   lookWeight: 0.2
@@ -635,6 +636,17 @@ MonoBehaviour:
   runSpeed: 3
   turningSmoothTime: 0.2
   speedSmoothTime: 0.1
+--- !u!114 &726420167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 726420164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cebf42d6b07e611479818f2391a0118d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &813035265
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +910,7 @@ GameObject:
   - component: {fileID: 1134896877}
   - component: {fileID: 1134896876}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1081,19 +1093,35 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 77bbce7c03ff82442b4093022bc42f5f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.019814333
+      value: 0.019810773
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 77bbce7c03ff82442b4093022bc42f5f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.009207733
+      value: 0.009206079
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 77bbce7c03ff82442b4093022bc42f5f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0029576668
+      value: 0.0031641785
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 77bbce7c03ff82442b4093022bc42f5f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00092033733
+      value: 0.0009845976
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 77bbce7c03ff82442b4093022bc42f5f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.40397134
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 77bbce7c03ff82442b4093022bc42f5f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.91451085
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 77bbce7c03ff82442b4093022bc42f5f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.40514398
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 77bbce7c03ff82442b4093022bc42f5f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9142469
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77bbce7c03ff82442b4093022bc42f5f, type: 3}

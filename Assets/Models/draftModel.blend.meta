@@ -104,6 +104,9 @@ ModelImporter:
     7400042: shoot
     7400044: strafeLeft
     7400046: strafeRight
+    7400048: reloadStay
+    7400050: rotateLeft
+    7400052: rotateRight
     9500000: //RootNode
     13700000: Body_001
     2186277476908879412: ImportLogs
@@ -122,7 +125,12 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Armature_Armature_hit-center_Armature_hit-center'
+    animationImportWarnings: "\nClip 'Default Take' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'mixamorig_Head' has translation animation
+      that will be discarded.\n\t'mixamorig_LeftArm' has translation animation that
+      will be discarded.\n\t'mixamorig_LeftHandIndex2' has translation animation that
+      will be discarded.\n\nClip 'Armature_Armature_hit-center_Armature_hit-center'
       has import animation warnings that might lower retargeting quality:\nNote: Activate
       translation DOF on avatar to improve retargeting quality.\n\t'mixamorig_LeftArm'
       has translation animation that will be discarded.\n\t'mixamorig_LeftHand' has
@@ -159,7 +167,7 @@ ModelImporter:
       has translation animation that will be discarded.\n\t'mixamorig_LeftHandIndex1'
       has translation animation that will be discarded.\n\t'mixamorig_LeftHandIndex3'
       has translation animation that will be discarded.\n\t'mixamorig_RightHandThumb3'
-      has translation animation that will be discarded.\n\nClip 'reload' has import
+      has translation animation that will be discarded.\n\nClip 'reloadRun' has import
       animation warnings that might lower retargeting quality:\nNote: Activate translation
       DOF on avatar to improve retargeting quality.\n\t'mixamorig_Spine2' has translation
       animation that will be discarded.\n\t'mixamorig_Head' has translation animation
@@ -174,25 +182,53 @@ ModelImporter:
       will be discarded.\n\t'mixamorig_RightHandIndex3' has translation animation
       that will be discarded.\n\t'mixamorig_LeftUpLeg' has scale animation that will
       be discarded.\n\t'mixamorig_LeftFoot' has scale animation that will be discarded.\n\t'mixamorig_LeftToeBase'
-      has scale animation that will be discarded.\n\nClip 'right' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation DOF
-      on avatar to improve retargeting quality.\n\t'mixamorig_LeftShoulder' has translation
-      animation that will be discarded.\n\t'mixamorig_LeftForeArm' has translation
-      animation that will be discarded.\n\t'mixamorig_LeftHandThumb1' has translation
-      animation that will be discarded.\n\t'mixamorig_LeftHandIndex2' has translation
-      animation that will be discarded.\n\t'mixamorig_LeftHandIndex3' has translation
-      animation that will be discarded.\n\t'mixamorig_RightHandThumb3' has translation
-      animation that will be discarded.\n\t'mixamorig_LeftUpLeg' has scale animation
-      that will be discarded.\n\t'mixamorig_LeftFoot' has scale animation that will
-      be discarded.\n\t'mixamorig_LeftToeBase' has scale animation that will be discarded.\n\nClip
-      'shoot' has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'mixamorig_Spine1'
-      has translation animation that will be discarded.\n\t'mixamorig_LeftHandThumb3'
-      has translation animation that will be discarded.\n\t'mixamorig_LeftHandIndex1'
-      has translation animation that will be discarded.\n\t'mixamorig_RightHandThumb3'
-      has translation animation that will be discarded.\n\nClip 'strafeLeft' has import
+      has scale animation that will be discarded.\n\nClip 'reloadStay' has import
       animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'mixamorig_LeftArm' has translation
+      DOF on avatar to improve retargeting quality.\n\t'mixamorig_Head' has translation
+      animation that will be discarded.\n\t'mixamorig_LeftArm' has translation animation
+      that will be discarded.\n\t'mixamorig_LeftHand' has translation animation that
+      will be discarded.\n\t'mixamorig_LeftHandThumb2' has translation animation that
+      will be discarded.\n\t'mixamorig_LeftHandIndex1' has translation animation that
+      will be discarded.\n\t'mixamorig_LeftHandIndex2' has translation animation that
+      will be discarded.\n\t'mixamorig_LeftHandIndex3' has translation animation that
+      will be discarded.\n\t'mixamorig_RightShoulder' has translation animation that
+      will be discarded.\n\t'mixamorig_RightArm' has translation animation that will
+      be discarded.\n\t'mixamorig_RightHand' has translation animation that will be
+      discarded.\n\t'mixamorig_RightHandThumb2' has translation animation that will
+      be discarded.\n\t'mixamorig_RightHandThumb3' has translation animation that
+      will be discarded.\n\t'mixamorig_RightHandIndex2' has translation animation
+      that will be discarded.\n\nClip 'right' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'mixamorig_LeftShoulder' has translation animation that
+      will be discarded.\n\t'mixamorig_LeftForeArm' has translation animation that
+      will be discarded.\n\t'mixamorig_LeftHandThumb1' has translation animation that
+      will be discarded.\n\t'mixamorig_LeftHandIndex2' has translation animation that
+      will be discarded.\n\t'mixamorig_LeftHandIndex3' has translation animation that
+      will be discarded.\n\t'mixamorig_RightHandThumb3' has translation animation
+      that will be discarded.\n\t'mixamorig_LeftUpLeg' has scale animation that will
+      be discarded.\n\t'mixamorig_LeftFoot' has scale animation that will be discarded.\n\t'mixamorig_LeftToeBase'
+      has scale animation that will be discarded.\n\nClip 'rotateLeft' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'mixamorig_Spine2' has translation
+      animation that will be discarded.\n\t'mixamorig_Neck' has translation animation
+      that will be discarded.\n\t'mixamorig_Head' has translation animation that will
+      be discarded.\n\t'mixamorig_LeftShoulder' has translation animation that will
+      be discarded.\n\t'mixamorig_RightShoulder' has translation animation that will
+      be discarded.\n\t'mixamorig_RightArm' has translation animation that will be
+      discarded.\n\t'mixamorig_RightForeArm' has translation animation that will be
+      discarded.\n\nClip 'rotateRight' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'mixamorig_Head' has translation animation that will be discarded.\n\t'mixamorig_LeftArm'
+      has translation animation that will be discarded.\n\t'mixamorig_LeftHandIndex2'
+      has translation animation that will be discarded.\n\nClip 'shoot' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'mixamorig_Spine1' has translation
+      animation that will be discarded.\n\t'mixamorig_LeftHandThumb3' has translation
+      animation that will be discarded.\n\t'mixamorig_LeftHandIndex1' has translation
+      animation that will be discarded.\n\t'mixamorig_RightHandThumb3' has translation
+      animation that will be discarded.\n\nClip 'strafeLeft' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation DOF
+      on avatar to improve retargeting quality.\n\t'mixamorig_LeftArm' has translation
       animation that will be discarded.\n\t'mixamorig_LeftHandIndex2' has translation
       animation that will be discarded.\n\t'mixamorig_LeftHandIndex3' has translation
       animation that will be discarded.\n\t'mixamorig_LeftUpLeg' has scale animation
@@ -208,15 +244,14 @@ ModelImporter:
       will be discarded.\n\t'mixamorig_RightUpLeg' has scale animation that will be
       discarded.\n"
     animationRetargetingWarnings: "\nRetargeting quality report for clip 'Default
-      Take':\n\tLeftLowerLeg average position error 9.5 mm and maximum position error
-      9.5 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerLeg average position error 6.9
-      mm and maximum position error 6.9 mm at time 0: 0 (0.0%) Frame 0\n\nRetargeting
-      quality report for clip 'apose':\n\tLeftLowerLeg average position error 9.5
-      mm and maximum position error 9.5 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerLeg
-      average position error 6.9 mm and maximum position error 6.9 mm at time 0: 0
-      (0.0%) Frame 0\n\nRetargeting quality report for clip 'Armature_Armature_hit-center_Armature_hit-center':\n\tLeftLowerLeg
-      average position error 0.2 mm and maximum position error 1.4 mm at time 0: 8
-      (26.7%) Frame 8\n\tRightLowerLeg average position error 0.3 mm and maximum position
+      Take':\n\tLeftLowerLeg average position error 0.3 mm and maximum position error
+      1.5 mm at time 0: 0 (0.0%) Frame 0\n\nRetargeting quality report for clip 'apose':\n\tLeftLowerLeg
+      average position error 9.5 mm and maximum position error 9.5 mm at time 0: 0
+      (0.0%) Frame 0\n\tRightLowerLeg average position error 6.9 mm and maximum position
+      error 6.9 mm at time 0: 0 (0.0%) Frame 0\n\nRetargeting quality report for clip
+      'Armature_Armature_hit-center_Armature_hit-center':\n\tLeftLowerLeg average
+      position error 0.2 mm and maximum position error 1.4 mm at time 0: 8 (26.7%)
+      Frame 8\n\tRightLowerLeg average position error 0.3 mm and maximum position
       error 2.0 mm at time 0:22 (73.3%) Frame 22\n\nRetargeting quality report for
       clip 'Armature_Armature_hit-left_Armature_hit-left':\n\tLeftLowerLeg average
       position error 0.2 mm and maximum position error 1.4 mm at time 0: 8 (26.7%)
@@ -230,17 +265,22 @@ ModelImporter:
       for clip 'hgitSimple':\n\tRetargeting quality is good. No significant differences
       with original animation were found.\n\nRetargeting quality report for clip 'idle':\n\tRetargeting
       quality is good. No significant differences with original animation were found.\n\nRetargeting
-      quality report for clip 'reload':\n\tRetargeting quality is good. No significant
+      quality report for clip 'reloadRun':\n\tRetargeting quality is good. No significant
       differences with original animation were found.\n\nRetargeting quality report
-      for clip 'right':\n\tLeftLowerLeg average position error 0.3 mm and maximum
-      position error 4.0 mm at time 0: 8 (26.7%) Frame 8\n\tRightLowerLeg average
-      position error 0.7 mm and maximum position error 12.8 mm at time 0:22 (73.3%)
-      Frame 22\n\nRetargeting quality report for clip 'shoot':\n\tRetargeting quality
-      is good. No significant differences with original animation were found.\n\nRetargeting
-      quality report for clip 'strafeLeft':\n\tRetargeting quality is good. No significant
-      differences with original animation were found.\n\nRetargeting quality report
-      for clip 'strafeRight':\n\tRetargeting quality is good. No significant differences
-      with original animation were found.\n"
+      for clip 'reloadStay':\n\tRetargeting quality is good. No significant differences
+      with original animation were found.\n\nRetargeting quality report for clip 'right':\n\tLeftLowerLeg
+      average position error 0.3 mm and maximum position error 4.0 mm at time 0: 8
+      (26.7%) Frame 8\n\tRightLowerLeg average position error 0.7 mm and maximum position
+      error 12.8 mm at time 0:22 (73.3%) Frame 22\n\nRetargeting quality report for
+      clip 'rotateLeft':\n\tLeftLowerLeg average position error 0.7 mm and maximum
+      position error 2.8 mm at time 1: 4 (87.2%) Frame 34\n\nRetargeting quality report
+      for clip 'rotateRight':\n\tLeftLowerLeg average position error 0.5 mm and maximum
+      position error 1.6 mm at time 1:14 (100.0%) Frame 44\n\nRetargeting quality
+      report for clip 'shoot':\n\tRetargeting quality is good. No significant differences
+      with original animation were found.\n\nRetargeting quality report for clip 'strafeLeft':\n\tRetargeting
+      quality is good. No significant differences with original animation were found.\n\nRetargeting
+      quality report for clip 'strafeRight':\n\tRetargeting quality is good. No significant
+      differences with original animation were found.\n"
     animationDoRetargetingWarnings: 1
     importAnimatedCustomProperties: 0
     importConstraints: 0
@@ -424,7 +464,7 @@ ModelImporter:
       name: reload
       takeName: reload
       firstFrame: 0
-      lastFrame: 110
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -523,6 +563,90 @@ ModelImporter:
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: reloadStay
+      takeName: reloadStay
+      firstFrame: 0
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rotateLeft
+      takeName: rotateLeft
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rotateRight
+      takeName: rotateRight
+      firstFrame: 0
+      lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
