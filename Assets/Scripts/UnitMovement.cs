@@ -50,10 +50,6 @@ public class UnitMovement : MonoBehaviour {
 
 	void Update () {
 		targetIsNear = (target.position - transform.position).sqrMagnitude <= attentionDistance * attentionDistance ? true : false;
-		// if (targetIsNear) {
-		// }
-		// Movement();
-		
 		PauseControl();
 		AnimationController();
 	}
@@ -73,11 +69,10 @@ public class UnitMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		// model movement with navmesh methods
 		if (!targetIsNear) {
 			// agent.SetDestination(paths[current].transform.position);
-			Movement();
-		} else {
+			// Movement();
+		// } else {
 			CoversGetPath();
 			CoversMovement();
 		}

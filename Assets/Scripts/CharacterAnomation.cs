@@ -183,7 +183,7 @@ public class CharacterAnomation : MonoBehaviour {
     // shoulderTrans.LookAt(lookPos);
     SmoothLook(lookPos, shoulderTrans);
     if (weaponRotation) {
-      shoulderTrans.rotation = Quaternion.Euler(30f,shoulderTrans.eulerAngles.y,shoulderTrans.eulerAngles.z);
+      shoulderTrans.rotation = Quaternion.Slerp(shoulderTrans.rotation, Quaternion.Euler(30f,shoulderTrans.eulerAngles.y,shoulderTrans.eulerAngles.z), 0.2f);
     }
     
     Vector3 rightShoulderPos = rightShoulder.TransformPoint(Vector3.zero);
