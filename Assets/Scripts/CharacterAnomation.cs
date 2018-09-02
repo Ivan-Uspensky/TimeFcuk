@@ -28,7 +28,7 @@ public class CharacterAnomation : MonoBehaviour {
   // float strafeState;
 
   float attackJourney;
-  public float slowdownPlayerFactor = 2f;
+  public float slowdownPlayerFactor;
 
   public float msBetweenShots = 0.1f;
 
@@ -98,6 +98,7 @@ public class CharacterAnomation : MonoBehaviour {
       attackState = false;
     }
 
+    // INCORRECT SLOMO FORMURA OF VALUES
     if (Input.GetKeyDown(KeyCode.Mouse1)) {
       if (!timeState) {
         timeManager.DoSlow();
