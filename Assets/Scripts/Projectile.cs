@@ -7,19 +7,24 @@ public class Projectile : MonoBehaviour {
 	public LayerMask collisionMask;
 	public float speed = 10;
 	public Transform Spark;
-  public float lifetime = 3;
+	public float lifetime = 3;
 	TrailRenderer trail;
-  MeshRenderer mesh;
+	MeshRenderer mesh;
 	public float spreadRange = 0.1f;
 	Vector3 spreadVector;
-	
+
+	Rigidbody rigidbody;
+	float moveDistance;
+
 	void Start() {
 		Destroy (gameObject, lifetime);
 
+		rigidbody = GetComponent<Rigidbody>();
+		
 		trail = GetComponent<TrailRenderer>();
 		trail.enabled = false;
 
-    mesh = GetComponentInChildren<MeshRenderer>();
+		mesh = GetComponentInChildren<MeshRenderer>();
 
 		float spreadX = Random.Range (-spreadRange, spreadRange);
 		float spreadY = Random.Range (-spreadRange, spreadRange);
@@ -28,13 +33,18 @@ public class Projectile : MonoBehaviour {
 	
 	void Update () {
 		trail.enabled = Time.timeScale != 1f ? true : false;
-    if (speed != 0) {
-		  float moveDistance = Time.deltaTime * speed;
-		  CheckCollisions (moveDistance);
-		  transform.Translate (spreadVector * moveDistance);
-    } else {
-      mesh.enabled = false;
-    }
+		if (speed != 0) {
+			moveDistance = Time.deltaTime * speed;
+			// CheckCollisions (moveDistance);
+			// transform.Translate (spreadVector * moveDistance);
+		} else {
+			mesh.enabled = false;
+		}
+	}
+
+	void FixedUpdate() {
+		Vector3 destination = transform.forward * moveDistance;
+		rigidbody.MovePosition(transform.position + destination);
 	}
 
 	public void SetSpeed(float newSpeed) {
@@ -56,11 +66,11 @@ public class Projectile : MonoBehaviour {
 		Destroy(hitParticle.gameObject, 1f);
 	}
 	
-	// void OnCollisionEnter(Collision collision) {
-	// 	foreach (ContactPoint contact in collision.contacts) {
-	// 		speed = 0;
-	// 		Transform hitParticle = Instantiate(Spark, contact.point, Quaternion.FromToRotation (Vector3.forward, contact.normal)) as Transform;
-	// 		Destroy(hitParticle.gameObject, 1f);
-	// 	}
-	// }
+	void OnCollisionEnter(Collision collision) {
+		foreach (ContactPoint contact in collision.contacts) {
+			speed = 0;
+			Transform hitParticle = Instantiate(Spark, contact.point, Quaternion.FromToRotation (Vector3.forward, contact.normal)) as Transform;
+			Destroy(hitParticle.gameObject, 1f);
+		}
+	}
 }

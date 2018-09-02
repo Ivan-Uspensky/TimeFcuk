@@ -73,13 +73,13 @@ public class CharacterAnomation : MonoBehaviour {
   }
   
   void Update () {
-
-    moveInput = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));
+    Vector3 directMovement = new Vector3(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));
+    moveInput = Vector3.ClampMagnitude(directMovement, 1);
     // moveVelocity = moveInput.normalized * runSpeed;
 
     // Debug.Log(moveInput);
     // controller.Move(moveVelocity);
-    
+
     if (Input.GetKey(KeyCode.LeftControl)) {
       slideState = true;
       // collider.size = new Vector3(1, 1.3f, 1);
