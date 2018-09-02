@@ -57,7 +57,8 @@ public class CharacterAnomation : MonoBehaviour {
   Animator animator;
   Vector3 direction;
   
-  public bool weaponRotation;
+  bool weaponRotation;
+  float weaponRotationCounter;
 
   void Start () {
     
@@ -70,11 +71,19 @@ public class CharacterAnomation : MonoBehaviour {
     rsp = new GameObject();
     rsp.name = transform.root.name + " Right Shoulder IK Helper";
     // attackJourney = 0.7f;
+    weaponRotation = false;
+    weaponRotationCounter = 0;
   }
   
   void Update () {
     Vector3 directMovement = new Vector3(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));
     moveInput = Vector3.ClampMagnitude(directMovement, 1);
+    weaponRotationCounter += Time.fixedDeltaTime;
+    if (weaponRotationCounter > 3f) {
+      weaponRotation = true;
+    } else {
+      weaponRotation = false;
+    }
     // moveVelocity = moveInput.normalized * runSpeed;
 
     // Debug.Log(moveInput);
@@ -92,6 +101,7 @@ public class CharacterAnomation : MonoBehaviour {
     
     if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.LeftAlt)) {
       // animator.SetBool("attackState", true);
+      weaponRotationCounter = 0;
       attackState = true;
     } else {
       // animator.SetBool("attackState", false);
@@ -170,14 +180,10 @@ public class CharacterAnomation : MonoBehaviour {
   }
 
   void HandleShoulder() {
-    
+    // shoulderTrans.LookAt(lookPos);
+    SmoothLook(lookPos, shoulderTrans);
     if (weaponRotation) {
-      // shoulderTrans.Rotate(Vector3.right, 30f);
-      shoulderTrans.LookAt(lookPos);
       shoulderTrans.rotation = Quaternion.Euler(30f,shoulderTrans.eulerAngles.y,shoulderTrans.eulerAngles.z);
-    } else {
-      // shoulderTrans.rotation = Quaternion.identity;
-      shoulderTrans.LookAt(lookPos);
     }
     
     Vector3 rightShoulderPos = rightShoulder.TransformPoint(Vector3.zero);
@@ -196,6 +202,11 @@ public class CharacterAnomation : MonoBehaviour {
     rsp.transform.parent = transform;
     shoulderTrans.position = rsp.transform.position;
 
+  }
+
+  void SmoothLook(Vector3 newDirection, Transform target){
+    target.rotation = Quaternion.Slerp(target.rotation, Quaternion.LookRotation(newDirection - target.position), 0.2f);
+    // target.rotation = Quaternion.Lerp(target.rotation, Quaternion.LookRotation(newDirection), 0.2f);
   }
 
   void OnGUI () {

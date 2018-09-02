@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dec3543d-7bf0-4f57-a401-b50833db3ebe" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/qweqwe.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/qweqwe.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterAnomation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterAnomation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Movement.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Movement.unity" afterDir="false" />
     </list>
     <ignored path=".idea/.idea.TimeFcuk/" />
     <ignored path="Assets/Plugins/" />
@@ -74,21 +72,22 @@
       <file leaf-file-name="Projectile.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Projectile.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+            <state relative-caret-position="495">
+              <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
               <folding>
-                <marker date="1535885712392" expanded="false" signature="6:78" ph="..." />
-                <marker date="1535885712392" expanded="true" signature="120:2126" ph="{...}" />
-                <marker date="1535885712392" expanded="true" signature="401:802" ph="{...}" />
-                <marker date="1535885712392" expanded="true" signature="821:1086" ph="{...}" />
-                <marker date="1535885712392" expanded="true" signature="946:1083" ph="/* CheckCollisions (moveDistance); ... */" />
-                <marker date="1535885712392" expanded="true" signature="1108:1221" ph="{...}" />
-                <marker date="1535885712392" expanded="true" signature="1262:1286" ph="{...}" />
-                <marker date="1535885712392" expanded="true" signature="1330:1570" ph="{...}" />
-                <marker date="1535885712392" expanded="true" signature="1509:1567" ph="{...}" />
-                <marker date="1535885712392" expanded="true" signature="1639:1822" ph="{...}" />
-                <marker date="1535885712392" expanded="true" signature="1869:2124" ph="{...}" />
-                <marker date="1535885712392" expanded="true" signature="1926:2121" ph="{...}" />
+                <marker date="1535886811015" expanded="false" signature="6:78" ph="..." />
+                <marker date="1535886811015" expanded="true" signature="120:2075" ph="{...}" />
+                <marker date="1535886811015" expanded="true" signature="393:752" ph="{...}" />
+                <marker date="1535886811015" expanded="true" signature="771:1027" ph="{...}" />
+                <marker date="1535886811015" expanded="true" signature="846:988" ph="{...}" />
+                <marker date="1535886811015" expanded="true" signature="893:984" ph="/* CheckCollisions (moveDistance); ... */" />
+                <marker date="1535886811015" expanded="true" signature="1049:1171" ph="{...}" />
+                <marker date="1535886811015" expanded="true" signature="1211:1235" ph="{...}" />
+                <marker date="1535886811015" expanded="true" signature="1279:1519" ph="{...}" />
+                <marker date="1535886811015" expanded="true" signature="1458:1516" ph="{...}" />
+                <marker date="1535886811015" expanded="true" signature="1588:1771" ph="{...}" />
+                <marker date="1535886811015" expanded="true" signature="1818:2073" ph="{...}" />
+                <marker date="1535886811015" expanded="true" signature="1875:2070" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -211,7 +210,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.1569966" />
       <window_info anchor="right" id="Errors In Solution" order="3" />
@@ -559,21 +557,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Projectile.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+        <state relative-caret-position="495">
+          <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
           <folding>
-            <marker date="1535885712392" expanded="false" signature="6:78" ph="..." />
-            <marker date="1535885712392" expanded="true" signature="120:2126" ph="{...}" />
-            <marker date="1535885712392" expanded="true" signature="401:802" ph="{...}" />
-            <marker date="1535885712392" expanded="true" signature="821:1086" ph="{...}" />
-            <marker date="1535885712392" expanded="true" signature="946:1083" ph="/* CheckCollisions (moveDistance); ... */" />
-            <marker date="1535885712392" expanded="true" signature="1108:1221" ph="{...}" />
-            <marker date="1535885712392" expanded="true" signature="1262:1286" ph="{...}" />
-            <marker date="1535885712392" expanded="true" signature="1330:1570" ph="{...}" />
-            <marker date="1535885712392" expanded="true" signature="1509:1567" ph="{...}" />
-            <marker date="1535885712392" expanded="true" signature="1639:1822" ph="{...}" />
-            <marker date="1535885712392" expanded="true" signature="1869:2124" ph="{...}" />
-            <marker date="1535885712392" expanded="true" signature="1926:2121" ph="{...}" />
+            <marker date="1535886811015" expanded="false" signature="6:78" ph="..." />
+            <marker date="1535886811015" expanded="true" signature="120:2075" ph="{...}" />
+            <marker date="1535886811015" expanded="true" signature="393:752" ph="{...}" />
+            <marker date="1535886811015" expanded="true" signature="771:1027" ph="{...}" />
+            <marker date="1535886811015" expanded="true" signature="846:988" ph="{...}" />
+            <marker date="1535886811015" expanded="true" signature="893:984" ph="/* CheckCollisions (moveDistance); ... */" />
+            <marker date="1535886811015" expanded="true" signature="1049:1171" ph="{...}" />
+            <marker date="1535886811015" expanded="true" signature="1211:1235" ph="{...}" />
+            <marker date="1535886811015" expanded="true" signature="1279:1519" ph="{...}" />
+            <marker date="1535886811015" expanded="true" signature="1458:1516" ph="{...}" />
+            <marker date="1535886811015" expanded="true" signature="1588:1771" ph="{...}" />
+            <marker date="1535886811015" expanded="true" signature="1818:2073" ph="{...}" />
+            <marker date="1535886811015" expanded="true" signature="1875:2070" ph="{...}" />
           </folding>
         </state>
       </provider>
