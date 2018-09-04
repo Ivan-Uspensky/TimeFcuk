@@ -12,8 +12,8 @@ public class CharacterShoot : MonoBehaviour {
 	void Update () {
 		if (Input.GetKey(KeyCode.R)) {
 			Debug.Log("reloading");
-			animator.SetBool("reloadState", true);
-			StartCoroutine(ResetReload());
+			animator.Play("Reload", 1, 0.2f);
+			// StartCoroutine(ResetReload());
 		}
 	}
 

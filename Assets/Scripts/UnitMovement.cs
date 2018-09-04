@@ -174,7 +174,8 @@ public class UnitMovement : MonoBehaviour {
   void OnCollisionEnter(Collision collision) {
 	  Debug.Log(collision.contacts[0].otherCollider.gameObject.layer);
     if (collision.contacts[0].otherCollider.gameObject.layer == 14) {
-      animator.SetBool("hitState", false);
+      // animator.SetBool("hitState", false);
+			animator.Play("Hit",2,0.2f);
     }
 	}
 

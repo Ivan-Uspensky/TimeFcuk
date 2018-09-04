@@ -1580,7 +1580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &353262365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1599,13 +1599,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 353262364}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5502de2ada24ba8408539c0e1227c75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponMuzzle: {fileID: 1103926414}
-  Player: {fileID: 875333838}
+  Player: {fileID: 1880476983}
   attentionDistance: 32
 --- !u!114 &353262367
 MonoBehaviour:
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   - {fileID: 647168902}
   - {fileID: 1953142650}
   animator: {fileID: 500898209}
-  target: {fileID: 875333838}
+  target: {fileID: 1880476983}
   unitBody: {fileID: 500898208}
   spine: {fileID: 1149870952}
   isStopped: 0
@@ -1638,12 +1638,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 353262364}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.25
+  m_Radius: 0.5
   m_Speed: 4.2
   m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 500
-  m_StoppingDistance: 0.25
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -2426,7 +2426,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 10295
+    m_Bits: 10551
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -4889,7 +4889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592fa2a3ad0083a46800c0ff57c49572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 875333838}
+  target: {fileID: 1880476983}
 --- !u!65 &1103926416
 BoxCollider:
   m_ObjectHideFlags: 0
