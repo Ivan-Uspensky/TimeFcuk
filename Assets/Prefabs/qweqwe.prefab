@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1361761877679214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1, y: 0.8, z: 31.4}
+  m_LocalPosition: {x: 1.5906551, y: 0.05000002, z: 34.865776}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4365592046003532}
@@ -172,7 +172,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.3}
+  m_Size: {x: 0.3, y: 0.3, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!96 &96910037808242370
 TrailRenderer:
@@ -290,7 +290,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 11520
-  speed: 250
+  speed: 10
   Spark: {fileID: 4992074849553736, guid: bc1feca8e73b1494db458dcf121fe061, type: 2}
   lifetime: 3
   spreadRange: 0.03

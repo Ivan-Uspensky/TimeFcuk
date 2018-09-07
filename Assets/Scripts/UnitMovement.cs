@@ -16,6 +16,7 @@ public class UnitMovement : MonoBehaviour {
 	public float animationState;
 	public float attentionDistance;
 
+	float movementSpeed;
 	int current;
 	Vector3 unitDirection;
 	Vector3 prevUnitPos;
@@ -44,6 +45,8 @@ public class UnitMovement : MonoBehaviour {
 		// m_PathLength = 0;
 		m_PathCurrent = 0;
 	  prevTargetposition = new Vector3(15,0,15);
+		animator.SetLayerWeight(2, 1.0f);
+		movementSpeed = agent.speed;
 	}
 	
 	// m_Path.nodes[0].transform.position;
@@ -69,22 +72,22 @@ public class UnitMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (!targetIsNear) {
+		// if (!targetIsNear) {
 			// agent.SetDestination(paths[current].transform.position);
 			// Movement();
 		// } else {
 			CoversGetPath();
 			CoversMovement();
-		}
+		// }
 	}
 
 	void CoversGetPath() {
 		if (target.position != prevTargetposition) {
 			start = GetNearestCover(transform);
 			end = GetNearestCover(target);
-			// Debug.Log(start + " - " + end);
+			Debug.Log(start + " - " + end);
 			m_Path = m_Graph.GetShortestPath(start, end);
-			// Debug.Log(m_Path);
+			Debug.Log(m_Path);
 			m_PathCurrent = 0;
 			prevTargetposition = target.position;
 		}
@@ -95,7 +98,7 @@ public class UnitMovement : MonoBehaviour {
 		agent.SetDestination(m_Path.nodes[m_PathCurrent].transform.position);
 		if ((transform.position - m_Path.nodes[m_PathCurrent].transform.position).sqrMagnitude <= 0.25f) {
 			agent.ResetPath();
-			if (m_PathCurrent < m_Path.nodes.Count - 2) {
+			if (m_PathCurrent < m_Path.nodes.Count - 1) {
 				m_PathCurrent++;
 				// Debug.Log("++: " + m_PathCurrent);
 			}
@@ -174,9 +177,20 @@ public class UnitMovement : MonoBehaviour {
   void OnCollisionEnter(Collision collision) {
 	  Debug.Log(collision.contacts[0].otherCollider.gameObject.layer);
     if (collision.contacts[0].otherCollider.gameObject.layer == 14) {
-      // animator.SetBool("hitState", false);
+      // animator.SetBool("hitState", true);
+			animator.SetLayerWeight(2, 1.0f);
 			animator.Play("Hit",2,0.2f);
+			agent.speed = 1f;
+			StartCoroutine(StopHit());
+			// if (!animator.GetCurrentAnimatorStateInfo(2).IsName("Hit")) {
+			// 	animator.SetBool("hitState", false);
+			// }
     }
 	}
+	IEnumerator StopHit() {
+    yield return new WaitForSeconds(0.2f);
+    animator.SetLayerWeight(2, 0);
+		agent.speed = movementSpeed;
+  }
 
 }
