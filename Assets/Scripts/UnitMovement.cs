@@ -38,6 +38,9 @@ public class UnitMovement : MonoBehaviour {
 	// Follower code
 	Node nearestCover;
 	Vector3 prevTargetposition;
+	bool isSit;
+
+	
 
 	void Start () {
 		current = 0;
@@ -47,6 +50,7 @@ public class UnitMovement : MonoBehaviour {
 	  prevTargetposition = new Vector3(15,0,15);
 		animator.SetLayerWeight(2, 1.0f);
 		movementSpeed = agent.speed;
+		isSit = false;
 	}
 	
 	// m_Path.nodes[0].transform.position;
@@ -85,9 +89,9 @@ public class UnitMovement : MonoBehaviour {
 		if (target.position != prevTargetposition) {
 			start = GetNearestCover(transform);
 			end = GetNearestCover(target);
-			Debug.Log(start + " - " + end);
+			// Debug.Log(start + " - " + end);
 			m_Path = m_Graph.GetShortestPath(start, end);
-			Debug.Log(m_Path);
+			// Debug.Log(m_Path);
 			m_PathCurrent = 0;
 			prevTargetposition = target.position;
 		}
@@ -97,8 +101,15 @@ public class UnitMovement : MonoBehaviour {
 		// Debug.Log(m_PathCurrent + "/" + m_Path.nodes.Count + "/" + m_Path.nodes[m_PathCurrent]);
 		agent.SetDestination(m_Path.nodes[m_PathCurrent].transform.position);
 		if ((transform.position - m_Path.nodes[m_PathCurrent].transform.position).sqrMagnitude <= 0.25f) {
+// ------- Movement through covers ------- //
+			// movementStatus = 'onKnee';
+			agent.speed = 0;
+			isSit = true;
+			// animator.SetFloat("animationState", 1);
+			StartCoroutine(WaitNGoNext());
 			agent.ResetPath();
-			if (m_PathCurrent < m_Path.nodes.Count - 1) {
+// ------- ------- ------- ------- ------- //
+			if (m_PathCurrent < m_Path.nodes.Count - 2) {
 				m_PathCurrent++;
 				// Debug.Log("++: " + m_PathCurrent);
 			}
@@ -164,11 +175,17 @@ public class UnitMovement : MonoBehaviour {
 			// 	// transform.Rotate(new Vector3(0,90,0));
 			// 	animationState = 0.2f;	
 			// }
+				animator.SetLayerWeight(1, 1f);
 				animationState = 0.4f;
 			// Debug.Log(unitAngleRotation + " - " + animationState);
 
 		} else {
-			animationState = 0;
+			// if(!isSit) {
+			// 	animationState = 0;
+			// } else {
+				animator.SetLayerWeight(1, 0.4f);
+				animationState = 1;
+			// }
 		}
 		//animate
 		animator.SetFloat("animationState", animationState);
@@ -192,5 +209,13 @@ public class UnitMovement : MonoBehaviour {
     animator.SetLayerWeight(2, 0);
 		agent.speed = movementSpeed;
   }
+
+	IEnumerator WaitNGoNext() {
+		float rand = Random.Range(0.5f, 3.5f);
+		yield return new WaitForSeconds(rand);
+		isSit = false;
+		agent.speed = movementSpeed;
+		// animationState = 0.4f;
+	}
 
 }

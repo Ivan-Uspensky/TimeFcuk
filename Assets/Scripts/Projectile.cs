@@ -88,9 +88,8 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		speed = 0;
-		rigidbody.velocity = transform.forward * speed;
+		rigidbody.velocity = transform.forward * 0;
 		Transform hitParticle = Instantiate(Spark, collision.contacts[0].point, Quaternion.FromToRotation (Vector3.forward, collision.contacts[0].normal)) as Transform;
-		Destroy(hitParticle.gameObject, 1f);
+		Destroy(hitParticle.gameObject, 2f);
   }
 }
