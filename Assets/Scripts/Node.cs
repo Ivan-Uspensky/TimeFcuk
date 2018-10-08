@@ -13,19 +13,30 @@ public class Node : MonoBehaviour {
 		}
 	}
 
+	List<Vector3> coverPoints;
 	public Node this [ int index ] {
 		get {
 			return m_Connections [ index ];
 		}
 	}
-
+	void Start () {
+		coverPoints = new List<Vector3>();
+		CountChildren(transform);
+	}
 	void OnValidate () {
 		// Removing duplicate elements
 		m_Connections = m_Connections.Distinct ().ToList ();
 	}
-
   void OnDrawGizmos() {
     Gizmos.color = Color.green;
     Gizmos.DrawSphere(transform.position, 0.5f);
   }
+	void CountChildren(Transform a) {
+		foreach (Transform child in a) {
+			coverPoints.Add(child.position);
+		}
+  }
+	public List<Vector3> getCoverPoints() {
+		return coverPoints;
+	}
 }

@@ -39,8 +39,7 @@ public class UnitMovement : MonoBehaviour {
 	Node nearestCover;
 	Vector3 prevTargetposition;
 	bool isSit;
-
-	
+	Vector3 longest;
 
 	void Start () {
 		current = 0;
@@ -61,6 +60,16 @@ public class UnitMovement : MonoBehaviour {
 		AnimationController();
 	}
 
+	void FixedUpdate() {
+		// if (!targetIsNear) {
+			// agent.SetDestination(paths[current].transform.position);
+			// Movement();
+		// } else {
+			CoversGetPath();
+			CoversMovement();
+		// }
+	}
+
 	Node GetNearestCover(Transform toObject) {
 		float dist = 100;
 		float temp = 0;
@@ -75,43 +84,43 @@ public class UnitMovement : MonoBehaviour {
 		return nearest;
 	}
 
-	void FixedUpdate() {
-		// if (!targetIsNear) {
-			// agent.SetDestination(paths[current].transform.position);
-			// Movement();
-		// } else {
-			CoversGetPath();
-			CoversMovement();
-		// }
-	}
-
 	void CoversGetPath() {
 		if (target.position != prevTargetposition) {
 			start = GetNearestCover(transform);
 			end = GetNearestCover(target);
-			// Debug.Log(start + " - " + end);
+
+// ------- Get correct cover position ------- //
+			List<Vector3> coverPoints = end.getCoverPoints();
+			longest = new Vector3(0,0,0);
+			float longestDist = 0;
+			foreach (Vector3 cover in coverPoints) {
+				if ((target.position - cover).sqrMagnitude >= longestDist) {
+					longestDist = (target.position - cover).sqrMagnitude;
+					longest = cover;
+				}
+			}
+			Debug.Log("cover: " + longest);
+// ------- ------- ------- ------- ------- //
+			
+			Debug.Log(start + " - " + end);
 			m_Path = m_Graph.GetShortestPath(start, end);
-			// Debug.Log(m_Path);
+			Debug.Log(m_Path);
 			m_PathCurrent = 0;
 			prevTargetposition = target.position;
 		}
 	}
 
 	void CoversMovement() {
-		// Debug.Log(m_PathCurrent + "/" + m_Path.nodes.Count + "/" + m_Path.nodes[m_PathCurrent]);
 		agent.SetDestination(m_Path.nodes[m_PathCurrent].transform.position);
 		if ((transform.position - m_Path.nodes[m_PathCurrent].transform.position).sqrMagnitude <= 0.25f) {
 // ------- Movement through covers ------- //
-			// movementStatus = 'onKnee';
 			agent.speed = 0;
 			isSit = true;
-			// animator.SetFloat("animationState", 1);
 			StartCoroutine(WaitNGoNext());
 			agent.ResetPath();
 // ------- ------- ------- ------- ------- //
-			if (m_PathCurrent < m_Path.nodes.Count - 2) {
+			if (m_PathCurrent < m_Path.nodes.Count) {
 				m_PathCurrent++;
-				// Debug.Log("++: " + m_PathCurrent);
 			}
 		}
 	}
@@ -192,7 +201,7 @@ public class UnitMovement : MonoBehaviour {
 	}
 
   void OnCollisionEnter(Collision collision) {
-	  Debug.Log(collision.contacts[0].otherCollider.gameObject.layer);
+	  // Debug.Log(collision.contacts[0].otherCollider.gameObject.layer);
     if (collision.contacts[0].otherCollider.gameObject.layer == 14) {
       // animator.SetBool("hitState", true);
 			animator.SetLayerWeight(2, 1.0f);
@@ -217,5 +226,14 @@ public class UnitMovement : MonoBehaviour {
 		agent.speed = movementSpeed;
 		// animationState = 0.4f;
 	}
-
+	
+  void OnDrawGizmos() {
+    Gizmos.color = Color.red;
+    Gizmos.DrawSphere(longest, 0.5f);
+		Gizmos.color = Color.cyan;
+		// Gizmos.DrawCube(m_Path.nodes[(m_Path.nodes.Count - 1)].transform.position, new Vector3(2, 5, 2));
+		if (end) {
+			Gizmos.DrawCube(end.transform.position, new Vector3(2, 5, 2));
+		}
+  }
 }
