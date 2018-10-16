@@ -134,7 +134,7 @@ public class UnitMovement : MonoBehaviour {
 			StartCoroutine(WaitNGoNext());
 			agent.ResetPath();
 // ------- ------- ------- ------- ------- //
-			if (m_PathCurrent < m_Path.nodes.Count - 2) {
+			if (m_PathCurrent < m_Path.nodes.Count - 1) {
 				m_PathCurrent++;
 			}
 		}

@@ -209,9 +209,9 @@ public class CharacterAnomation : MonoBehaviour {
     // target.rotation = Quaternion.Lerp(target.rotation, Quaternion.LookRotation(newDirection), 0.2f);
   }
 
-  void OnGUI () {
-    GUI.Box(new Rect(10,10,150,120), "Movement States");  
-    string speed = animationState.ToString();
-    GUI.Label(new Rect(20,90,80,20), speed);
-  }
+  // void OnGUI () {
+  //   GUI.Box(new Rect(10,10,150,120), "Movement States");  
+  //   string speed = animationState.ToString();
+  //   GUI.Label(new Rect(20,90,80,20), speed);
+  // }
 }
