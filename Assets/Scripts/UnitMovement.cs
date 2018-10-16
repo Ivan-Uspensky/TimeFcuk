@@ -71,7 +71,7 @@ public class UnitMovement : MonoBehaviour {
 	}
 
 	Node GetNearestCover(Transform toObject) {
-		float dist = 100;
+		float dist = 1000;
 		float temp = 0;
 		Node nearest = m_Graph.nodes[m_Graph.nodes.Count - 1];
 		for (int i = 0; i < m_Graph.nodes.Count - 1; i++ ) {
@@ -90,36 +90,51 @@ public class UnitMovement : MonoBehaviour {
 			end = GetNearestCover(target);
 
 // ------- Get correct cover position ------- //
-			List<Vector3> coverPoints = end.getCoverPoints();
-			longest = new Vector3(0,0,0);
-			float longestDist = 0;
-			foreach (Vector3 cover in coverPoints) {
-				if ((target.position - cover).sqrMagnitude >= longestDist) {
-					longestDist = (target.position - cover).sqrMagnitude;
-					longest = cover;
-				}
-			}
-			Debug.Log("cover: " + longest);
+			// List<Vector3> coverPoints = end.getCoverPoints();
+			// longest = new Vector3(0,0,0);
+			// float longestDist = 0;
+			// foreach (Vector3 cover in coverPoints) {
+			// 	if ((target.position - cover).sqrMagnitude >= longestDist) {
+			// 		longestDist = (target.position - cover).sqrMagnitude;
+			// 		longest = cover;
+			// 	}
+			// }
+			// Debug.Log("cover: " + longest);
 // ------- ------- ------- ------- ------- //
 			
-			Debug.Log(start + " - " + end);
+			// Debug.Log(start + " - " + end);
 			m_Path = m_Graph.GetShortestPath(start, end);
-			Debug.Log(m_Path);
+			// Debug.Log(m_Path);
 			m_PathCurrent = 0;
 			prevTargetposition = target.position;
 		}
 	}
 
+	Vector3 GetActualCoverPoint(Node node) {
+		List<Vector3> coverPoints = node.getCoverPoints();
+		longest = new Vector3(0,0,0);
+		float longestDist = 0;
+		foreach (Vector3 cover in coverPoints) {
+			if ((target.position - cover).sqrMagnitude >= longestDist) {
+			longestDist = (target.position - cover).sqrMagnitude;
+			longest = cover;
+			}
+		}
+		return longest;
+	}
+
 	void CoversMovement() {
-		agent.SetDestination(m_Path.nodes[m_PathCurrent].transform.position);
-		if ((transform.position - m_Path.nodes[m_PathCurrent].transform.position).sqrMagnitude <= 0.25f) {
+		Vector3 actualCoverPoint = GetActualCoverPoint(m_Path.nodes[m_PathCurrent]);
+		agent.SetDestination(actualCoverPoint);
+		// Debug.Log((transform.position - m_Path.nodes[m_PathCurrent].transform.position).sqrMagnitude);
+		if ((transform.position - actualCoverPoint).sqrMagnitude <= 0.7f) {
 // ------- Movement through covers ------- //
 			agent.speed = 0;
 			isSit = true;
 			StartCoroutine(WaitNGoNext());
 			agent.ResetPath();
 // ------- ------- ------- ------- ------- //
-			if (m_PathCurrent < m_Path.nodes.Count) {
+			if (m_PathCurrent < m_Path.nodes.Count - 2) {
 				m_PathCurrent++;
 			}
 		}
@@ -129,14 +144,6 @@ public class UnitMovement : MonoBehaviour {
     // spine look at
 		RotationController();
   }
-
-	void Movement() {
-		//circling between two destinations
-		if (agent.remainingDistance < 1 && agent.remainingDistance != 0) {
-			agent.ResetPath();
-			// current = current == 0 ? 1 : 0;
-		}
-	}
 
 	void PauseControl() {
 		// pause control
@@ -189,12 +196,8 @@ public class UnitMovement : MonoBehaviour {
 			// Debug.Log(unitAngleRotation + " - " + animationState);
 
 		} else {
-			// if(!isSit) {
-			// 	animationState = 0;
-			// } else {
 				animator.SetLayerWeight(1, 0.4f);
 				animationState = 1;
-			// }
 		}
 		//animate
 		animator.SetFloat("animationState", animationState);
@@ -228,10 +231,11 @@ public class UnitMovement : MonoBehaviour {
 	}
 	
   void OnDrawGizmos() {
-    Gizmos.color = Color.red;
-    Gizmos.DrawSphere(longest, 0.5f);
+    Gizmos.color = Color.black;
+    // Gizmos.DrawSphere(longest, 0.5f);
+		Gizmos.DrawCube(longest, new Vector3(0.8f, 3, 0.8f));
+		
 		Gizmos.color = Color.cyan;
-		// Gizmos.DrawCube(m_Path.nodes[(m_Path.nodes.Count - 1)].transform.position, new Vector3(2, 5, 2));
 		if (end) {
 			Gizmos.DrawCube(end.transform.position, new Vector3(2, 5, 2));
 		}
