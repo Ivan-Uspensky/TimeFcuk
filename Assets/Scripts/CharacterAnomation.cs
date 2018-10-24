@@ -45,6 +45,7 @@ public class CharacterAnomation : MonoBehaviour {
 
   public TimeManager timeManager;
 
+  public Transform LaserDot;
 
   float timeFactor;
 
@@ -175,7 +176,8 @@ public class CharacterAnomation : MonoBehaviour {
 	}
 
   void HandleAimingPos() {
-    lookPos = GameObject.Find("LaserDot(Clone)").transform.position;
+    // lookPos = GameObject.Find("LaserDot(Clone)").transform.position;
+    lookPos = LaserDot.position;
     // lookPos = fakeTarget.transform.position;
   }
 

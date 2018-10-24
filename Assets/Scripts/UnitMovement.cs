@@ -61,13 +61,16 @@ public class UnitMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		// if (!targetIsNear) {
+		if (!targetIsNear) {
 			// agent.SetDestination(paths[current].transform.position);
 			// Movement();
-		// } else {
-			CoversGetPath();
+			Node hiding = GetNearestCover(transform);
+			CoversGetPath(hiding.transform);
 			CoversMovement();
-		// }
+		} else {
+			CoversGetPath(target);
+			CoversMovement();
+		}
 	}
 
 	Node GetNearestCover(Transform toObject) {
@@ -84,29 +87,20 @@ public class UnitMovement : MonoBehaviour {
 		return nearest;
 	}
 
-	void CoversGetPath() {
-		if (target.position != prevTargetposition) {
+	void CoversGetPath(Transform whereToGo) {
+		if (whereToGo.position != prevTargetposition) {
 			start = GetNearestCover(transform);
-			end = GetNearestCover(target);
+			end = GetNearestCover(whereToGo);
 
 // ------- Get correct cover position ------- //
-			// List<Vector3> coverPoints = end.getCoverPoints();
-			// longest = new Vector3(0,0,0);
-			// float longestDist = 0;
-			// foreach (Vector3 cover in coverPoints) {
-			// 	if ((target.position - cover).sqrMagnitude >= longestDist) {
-			// 		longestDist = (target.position - cover).sqrMagnitude;
-			// 		longest = cover;
-			// 	}
-			// }
-			// Debug.Log("cover: " + longest);
+
 // ------- ------- ------- ------- ------- //
 			
 			// Debug.Log(start + " - " + end);
 			m_Path = m_Graph.GetShortestPath(start, end);
 			// Debug.Log(m_Path);
 			m_PathCurrent = 0;
-			prevTargetposition = target.position;
+			prevTargetposition = whereToGo.position;
 		}
 	}
 
@@ -136,6 +130,8 @@ public class UnitMovement : MonoBehaviour {
 // ------- ------- ------- ------- ------- //
 			if (m_PathCurrent < m_Path.nodes.Count - 1) {
 				m_PathCurrent++;
+			} else {
+
 			}
 		}
 	}
@@ -194,10 +190,14 @@ public class UnitMovement : MonoBehaviour {
 				animator.SetLayerWeight(1, 1f);
 				animationState = 0.4f;
 			// Debug.Log(unitAngleRotation + " - " + animationState);
+				
 
 		} else {
-				animator.SetLayerWeight(1, 0.4f);
-				animationState = 1;
+				if (agent.isStopped != true) {
+					animator.SetLayerWeight(1, 0.4f);
+					animationState = 1;
+				}
+				
 		}
 		//animate
 		animator.SetFloat("animationState", animationState);
@@ -230,14 +230,14 @@ public class UnitMovement : MonoBehaviour {
 		// animationState = 0.4f;
 	}
 	
-  void OnDrawGizmos() {
-    Gizmos.color = Color.black;
-    // Gizmos.DrawSphere(longest, 0.5f);
-		Gizmos.DrawCube(longest, new Vector3(0.8f, 3, 0.8f));
+  // void OnDrawGizmos() {
+  //   Gizmos.color = Color.black;
+  //   // Gizmos.DrawSphere(longest, 0.5f);
+	// 	Gizmos.DrawCube(longest, new Vector3(0.8f, 3, 0.8f));
 		
-		Gizmos.color = Color.cyan;
-		if (end) {
-			Gizmos.DrawCube(end.transform.position, new Vector3(2, 5, 2));
-		}
-  }
+	// 	Gizmos.color = Color.cyan;
+	// 	if (end) {
+	// 		Gizmos.DrawCube(end.transform.position, new Vector3(2, 5, 2));
+	// 	}
+  // }
 }

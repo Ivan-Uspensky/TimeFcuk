@@ -32,8 +32,8 @@ public class Projectile : MonoBehaviour {
 	
 	void Update () {
 		trail.enabled = Time.timeScale != 1f ? true : false;
-		if (speed != 0) {
-			moveDistance = Time.deltaTime * speed;
+		if (!rigidbody.isKinematic) {
+			// moveDistance = Time.deltaTime * speed;
 			// CheckCollisions (moveDistance);
 			// transform.Translate (spreadVector * moveDistance);
 			rigidbody.velocity = transform.forward * speed;
@@ -76,19 +76,17 @@ public class Projectile : MonoBehaviour {
 	// }
 
 	void OnTriggerEnter(Collider hitInfo) {
-		
 		speed = 0;
-		rigidbody.velocity = transform.forward * speed;
-
+		rigidbody.isKinematic = true;
 		// Transform hitParticle = Instantiate(Spark, hitInfo.contacts[0].point, Quaternion.FromToRotation (Vector3.forward, hitInfo.contacts[0].normal)) as Transform;
 		Vector3 hitPoint = hitInfo.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
-		
 		Transform hitParticle = Instantiate(Spark, hitPoint, Quaternion.FromToRotation (Vector3.forward, hitPoint.normalized)) as Transform;
 		Destroy(hitParticle.gameObject, 1f);
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		rigidbody.velocity = transform.forward * 0;
+		// rigidbody.velocity = transform.forward * 0;
+		rigidbody.isKinematic = true;
 		Transform hitParticle = Instantiate(Spark, collision.contacts[0].point, Quaternion.FromToRotation (Vector3.forward, collision.contacts[0].normal)) as Transform;
 		Destroy(hitParticle.gameObject, 2f);
   }

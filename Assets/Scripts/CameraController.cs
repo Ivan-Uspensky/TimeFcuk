@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour {
 	public float mouseSensitivity = 3;
   public Transform target;
   public Vector2 pitchMinMax = new Vector2 (-60, 60);
-  public Transform RedDotPrefab;
+  // public Transform RedDotPrefab;
   public Transform cameraPosition;
   public RaycastHit hit;
 
@@ -17,13 +17,14 @@ public class CameraController : MonoBehaviour {
   public Transform RedDot;
 
   public float distanceToDot = 10;
+  public LayerMask layerMask;
   
   float yaw;
 	float pitch;
   Vector3 targetRotation;
 	
   void Start() {
-    RedDot = Instantiate( RedDotPrefab, Vector3.zero, new Quaternion(0,0,0,0));
+    // RedDot = Instantiate( RedDotPrefab, Vector3.zero, new Quaternion(0,0,0,0));
   }
 
 	void LateUpdate () {
@@ -37,7 +38,7 @@ public class CameraController : MonoBehaviour {
     targetRotation = new Vector3 (pitch, yaw);
     transform.eulerAngles = targetRotation;
 
-    if (Physics.Raycast(transform.position, transform.forward, out hit, distanceToDot)) {
+    if (Physics.Raycast(transform.position, transform.forward, out hit, distanceToDot, layerMask)) {
       RedDot.transform.position = hit.point;
     } else {
       transform.rotation.ToAngleAxis(out angle, out axis);
