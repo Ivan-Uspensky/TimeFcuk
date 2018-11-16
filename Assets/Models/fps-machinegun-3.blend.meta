@@ -57,7 +57,7 @@ ModelImporter:
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 0
-    importLights: 0
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -74,7 +74,7 @@ ModelImporter:
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
-    normalSmoothAngle: 100
+    normalSmoothAngle: 140
     normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
@@ -92,7 +92,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: Carcass
-    rootMotionBoneRotation: {x: 0.03493761, y: 3.0488815e-19, z: 8.721319e-18, w: 0.9993895}
+    rootMotionBoneRotation: {x: -0, y: -0, z: -0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1

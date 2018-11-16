@@ -72,7 +72,7 @@ Transform:
   m_GameObject: {fileID: 1214251409263200}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.1, z: 0.05}
+  m_LocalScale: {x: 0.18, y: 0.3, z: 0.18}
   m_Children: []
   m_Father: {fileID: 4409011431879200}
   m_RootOrder: 0
@@ -83,7 +83,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1361761877679214}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.19196, y: 0, z: 35.02401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -91,7 +91,7 @@ Transform:
   - {fileID: 4581809796620950}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4581809796620950
 Transform:
   m_ObjectHideFlags: 1
@@ -290,10 +290,10 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 12032
-  speed: 5
+  speed: 0.8
   Spark: {fileID: 4827888285561380, guid: c0a2cc1bb55ac794e92d87a6ff23c9e5, type: 2}
   lifetime: 3
-  spreadRange: 0.03
+  spreadRange: 1
 --- !u!198 &198838268377054876
 ParticleSystem:
   m_ObjectHideFlags: 1

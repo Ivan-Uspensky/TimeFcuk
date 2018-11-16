@@ -9,24 +9,19 @@ public class UnitMovement : MonoBehaviour {
 	public Animator animator;
 	public Transform target;
 	public Transform unitBody;
-
   public Transform spine;
-	
 	public bool isStopped;
+	public bool isDive;
 	public float animationState;
 	public float attentionDistance;
-
 	float movementSpeed;
 	int current;
 	Vector3 unitDirection;
 	Vector3 prevUnitPos;
-
 	bool targetIsNear = false;
-	
 	// float unitRotationSpeed = 10;
   float unitAngleRotation;
 	float bodyRotation;
-
 	// Follower code
 	public Graph m_Graph;
 	Node start;
@@ -44,22 +39,17 @@ public class UnitMovement : MonoBehaviour {
 	void Start () {
 		current = 0;
 		prevUnitPos = transform.position;
-		// m_PathLength = 0;
 		m_PathCurrent = 0;
 	  prevTargetposition = new Vector3(15,0,15);
 		animator.SetLayerWeight(2, 1.0f);
 		movementSpeed = agent.speed;
 		isSit = false;
 	}
-	
-	// m_Path.nodes[0].transform.position;
-
 	void Update () {
 		targetIsNear = (target.position - transform.position).sqrMagnitude <= attentionDistance * attentionDistance ? true : false;
 		PauseControl();
 		AnimationController();
 	}
-
 	void FixedUpdate() {
 		if (!targetIsNear) {
 			// agent.SetDestination(paths[current].transform.position);
@@ -72,7 +62,6 @@ public class UnitMovement : MonoBehaviour {
 			CoversMovement();
 		}
 	}
-
 	Node GetNearestCover(Transform toObject) {
 		float dist = 1000;
 		float temp = 0;
@@ -86,16 +75,10 @@ public class UnitMovement : MonoBehaviour {
 		}
 		return nearest;
 	}
-
 	void CoversGetPath(Transform whereToGo) {
 		if (whereToGo.position != prevTargetposition) {
 			start = GetNearestCover(transform);
 			end = GetNearestCover(whereToGo);
-
-// ------- Get correct cover position ------- //
-
-// ------- ------- ------- ------- ------- //
-			
 			// Debug.Log(start + " - " + end);
 			m_Path = m_Graph.GetShortestPath(start, end);
 			// Debug.Log(m_Path);
@@ -103,7 +86,6 @@ public class UnitMovement : MonoBehaviour {
 			prevTargetposition = whereToGo.position;
 		}
 	}
-
 	Vector3 GetActualCoverPoint(Node node) {
 		List<Vector3> coverPoints = node.getCoverPoints();
 		longest = new Vector3(0,0,0);
@@ -116,16 +98,18 @@ public class UnitMovement : MonoBehaviour {
 		}
 		return longest;
 	}
-
 	void CoversMovement() {
 		Vector3 actualCoverPoint = GetActualCoverPoint(m_Path.nodes[m_PathCurrent]);
 		agent.SetDestination(actualCoverPoint);
 		// Debug.Log((transform.position - m_Path.nodes[m_PathCurrent].transform.position).sqrMagnitude);
 		if ((transform.position - actualCoverPoint).sqrMagnitude <= 0.7f) {
 // ------- Movement through covers ------- //
-			agent.speed = 0;
-			isSit = true;
-			StartCoroutine(WaitNGoNext());
+			float rand = Random.Range(0, 1);
+			if (rand < 0.3f) {
+				agent.speed = 0;
+				isSit = true;
+				StartCoroutine(WaitNGoNext());
+			}
 			agent.ResetPath();
 // ------- ------- ------- ------- ------- //
 			if (m_PathCurrent < m_Path.nodes.Count - 1) {
@@ -135,17 +119,14 @@ public class UnitMovement : MonoBehaviour {
 			}
 		}
 	}
-
   void LateUpdate() {
     // spine look at
 		RotationController();
   }
-
 	void PauseControl() {
 		// pause control
 		agent.isStopped = isStopped;
 	}
-
   void RotationController() {
 		if (targetIsNear) {
 			unitBody.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
@@ -156,20 +137,15 @@ public class UnitMovement : MonoBehaviour {
       // spine.localRotation = Quaternion.identity;
 		}
   }
-
+	public Vector3 GetUnitDirection() {
+		return unitDirection;
+	}
 	void AnimationController() {
 		unitAngleRotation = spine.localRotation.eulerAngles.y;
-		// Debug.Log(unitAngleRotation);
-		
+	
 		//animation selector
 		unitDirection = (transform.position - prevUnitPos).normalized;
     prevUnitPos = transform.position;
-
-    // if (targetIsNear) {
-    //   animator.SetBool("attackState", true);
-    // } else {
-    //   animator.SetBool("attackState", false);
-    // }
 
 		if (unitDirection.magnitude > 0.1f) {
 			
@@ -188,7 +164,14 @@ public class UnitMovement : MonoBehaviour {
 			// 	animationState = 0.2f;	
 			// }
 				animator.SetLayerWeight(1, 1f);
-				animationState = 0.4f;
+				if (!isDive) {
+					animationState = 0.4f;
+					// animationState = 1.2f;
+				} else {
+					animationState = 1.2f;
+				}
+				
+
 			// Debug.Log(unitAngleRotation + " - " + animationState);
 				
 
@@ -223,7 +206,7 @@ public class UnitMovement : MonoBehaviour {
   }
 
 	IEnumerator WaitNGoNext() {
-		float rand = Random.Range(0.5f, 3.5f);
+		float rand = Random.Range(1.5f, 3.5f);
 		yield return new WaitForSeconds(rand);
 		isSit = false;
 		agent.speed = movementSpeed;

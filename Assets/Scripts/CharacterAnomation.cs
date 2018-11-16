@@ -80,11 +80,13 @@ public class CharacterAnomation : MonoBehaviour {
     Vector3 directMovement = new Vector3(Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));
     moveInput = Vector3.ClampMagnitude(directMovement, 1);
     weaponRotationCounter += Time.fixedDeltaTime;
-    if (weaponRotationCounter > 3f) {
-      weaponRotation = true;
-    } else {
-      weaponRotation = false;
-    }
+    // --------------------------------------
+    // if (weaponRotationCounter > 3f) {
+    //   weaponRotation = true;
+    // } else {
+    //   weaponRotation = false;
+    // }
+    // --------------------------------------
     // moveVelocity = moveInput.normalized * runSpeed;
 
     // Debug.Log(moveInput);
