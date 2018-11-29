@@ -290,10 +290,10 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 12032
-  speed: 0.8
+  speed: 0.1
   Spark: {fileID: 4827888285561380, guid: c0a2cc1bb55ac794e92d87a6ff23c9e5, type: 2}
   lifetime: 3
-  spreadRange: 1
+  spreadRange: 0.03
 --- !u!198 &198838268377054876
 ParticleSystem:
   m_ObjectHideFlags: 1

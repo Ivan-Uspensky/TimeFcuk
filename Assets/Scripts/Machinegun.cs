@@ -13,9 +13,6 @@ public class Machinegun : MonoBehaviour {
   // Vector3 spreadVector;
 	
 	float nextShotTime;
-	Vector3 relativePos;
-	Quaternion rotation;
-	Vector3 temp;
 	public ParticleSystem muzzleFlash;
 
   public void Start() {
