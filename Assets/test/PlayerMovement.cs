@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 	public Vector2 mouseSensitivity;
 	public Vector2 verticalLookMinMax;
 	public Transform cam;
+	public float strafeHeadAngle;
 	CharacterController controller;
 	GunHandler gunController;
 	float pitch;
@@ -30,10 +31,11 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 	void Update () {
-		
 		//Movement input handler
 		Vector3 moveInput = new Vector3 (Input.GetAxisRaw ("Horizontal"),0,Input.GetAxisRaw ("Vertical"));
+		// Debug.Log("moveInput: " + moveInput);
 		moveDir = Vector3.ClampMagnitude(moveInput, 1);
+		// Debug.Log("moveDir: " + moveDir);
 		Vector2 mouseInput = new Vector2 (Input.GetAxisRaw ("Mouse X"), Input.GetAxisRaw ("Mouse Y"));
 		//Jump input handler
 		if (controller.isGrounded) {
@@ -54,8 +56,18 @@ public class PlayerMovement : MonoBehaviour {
 		transform.Rotate (Vector3.up * mouseInput.x * mouseSensitivity.x);
 		pitch += mouseInput.y * mouseSensitivity.y;
 		pitch = Mathf.Clamp (pitch, verticalLookMinMax.x, verticalLookMinMax.y);
+		//Camera handler
 		Quaternion yQuaternion = Quaternion.AngleAxis (pitch, Vector3.left);
 		cam.localRotation =  yQuaternion;
+		if (moveInput.x == 1) {
+			Debug.Log("strafe to right");
+			cam.Rotate(0,0,strafeHeadAngle, Space.Self);
+		}
+		if (moveInput.x == -1) {
+			Debug.Log("strafe to left");
+			cam.Rotate(0,0,-strafeHeadAngle, Space.Self);
+		}
+
 		//Player jump execution
 		velocityY -= gravity * Time.deltaTime;	
 		//Player movement execution
