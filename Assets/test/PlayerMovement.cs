@@ -60,11 +60,9 @@ public class PlayerMovement : MonoBehaviour {
 		Quaternion yQuaternion = Quaternion.AngleAxis (pitch, Vector3.left);
 		cam.localRotation =  yQuaternion;
 		if (moveInput.x == 1) {
-			Debug.Log("strafe to right");
 			cam.Rotate(0,0,strafeHeadAngle, Space.Self);
 		}
 		if (moveInput.x == -1) {
-			Debug.Log("strafe to left");
 			cam.Rotate(0,0,-strafeHeadAngle, Space.Self);
 		}
 
