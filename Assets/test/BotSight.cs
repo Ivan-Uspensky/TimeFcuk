@@ -10,12 +10,15 @@ public class BotSight : MonoBehaviour {
 	BotState State;
 	Vector3 playerPosition;
 	float playerAngle;
+	// PlayerCameraLook playerSees;
 	public float seenDistance;
+	// public Transform player; 
 	void Start () {
 		heightMultiplier = 0.25f;
 		sightDist = 10;
 		damping = 6.0f;
 		State = GetComponent<BotState>();
+		// playerSees = player.GetComponent<PlayerCameraLook>();
 	}
 	void Update () {
 		RaycastHit hit;
@@ -29,6 +32,12 @@ public class BotSight : MonoBehaviour {
 			State.SetSeeing(true);
 		} else {
 			State.SetSeeing(false);
+		}
+		Debug.Log(State.GetWhoIsGunpointed());
+		if (gameObject.name == State.GetWhoIsGunpointed()) {
+			State.SetGunpointed(true);
+		} else {
+			State.SetGunpointed(false);
 		}
 	}
 	void SmoothLook(Vector3 hitPoint) {

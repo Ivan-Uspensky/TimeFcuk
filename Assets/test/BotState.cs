@@ -12,8 +12,12 @@ public class BotState : MonoBehaviour {
 	bool isShooting;
 	bool isSeeing;
 	public Transform Player;
+	PlayerCameraLook playerSees;
 	void Start () {
-		
+		playerSees = Player.GetComponent<PlayerCameraLook>();
+	}
+	public string GetWhoIsGunpointed() {
+		return playerSees.GetHitName();
 	}
 	public void SetOffensive(bool state) {
 		isOffensive = state;
