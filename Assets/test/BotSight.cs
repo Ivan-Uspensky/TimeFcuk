@@ -10,18 +10,15 @@ public class BotSight : MonoBehaviour {
 	BotState State;
 	Vector3 playerPosition;
 	float playerAngle;
-	// PlayerCameraLook playerSees;
 	public float seenDistance;
-	// public Transform player; 
 	void Start () {
 		heightMultiplier = 0.25f;
 		sightDist = 10;
 		damping = 6.0f;
 		State = GetComponent<BotState>();
-		// playerSees = player.GetComponent<PlayerCameraLook>();
 	}
 	void Update () {
-		RaycastHit hit;
+		// RaycastHit hit;
 		Debug.DrawRay(transform.position + Vector3.up * heightMultiplier, transform.forward * sightDist, Color.green);
 		Debug.DrawRay(transform.position + Vector3.up * heightMultiplier, (transform.forward + transform.right).normalized * sightDist, Color.green);
 		Debug.DrawRay(transform.position + Vector3.up * heightMultiplier, (transform.forward - transform.right).normalized * sightDist, Color.green);

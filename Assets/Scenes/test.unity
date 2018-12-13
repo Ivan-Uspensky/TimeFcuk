@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 72430627}
   - component: {fileID: 72430628}
   - component: {fileID: 72430629}
+  - component: {fileID: 72430630}
   m_Layer: 10
   m_Name: Bot_1
   m_TagString: Untagged
@@ -279,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8024586e34376419af134df539b9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1257800084}
+  agent: {fileID: 72430630}
 --- !u!114 &72430628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +304,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a70c97257c6ac74dae756092890ea57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1723816143}
+  Player: {fileID: 1257800084}
+--- !u!195 &72430630
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 72430622}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 20
+  avoidancePriority: 50
+  m_AngularSpeed: 500
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &98045095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,7 +2047,7 @@ GameObject:
   - component: {fileID: 874996741}
   - component: {fileID: 874996740}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: NavMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2048,7 +2070,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 2359
+    m_Bits: 10551
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -2066,7 +2088,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 874996739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
