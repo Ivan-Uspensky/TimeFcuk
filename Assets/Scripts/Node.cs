@@ -6,13 +6,11 @@ using UnityEngine;
 public class Node : MonoBehaviour {
 	[SerializeField]
 	public List<Node> m_Connections = new List<Node> ();
-
 	public virtual List<Node> connections {
 		get {
 			return m_Connections;
 		}
 	}
-
 	List<Vector3> coverPoints;
 	public Node this [ int index ] {
 		get {
@@ -29,7 +27,7 @@ public class Node : MonoBehaviour {
 	}
   void OnDrawGizmos() {
     Gizmos.color = Color.green;
-    Gizmos.DrawSphere(transform.position, 0.5f);
+    Gizmos.DrawSphere(transform.position, 0.25f);
   }
 	void CountChildren(Transform a) {
 		foreach (Transform child in a) {
