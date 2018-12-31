@@ -12,7 +12,7 @@ public class UnitMovement : MonoBehaviour {
   public Transform spine;
 	public bool isStopped;
 	public bool isDive;
-	public float animationState;
+	public float animationState; 
 	public float attentionDistance;
 	float movementSpeed;
 	int current;

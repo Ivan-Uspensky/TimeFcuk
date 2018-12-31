@@ -245,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 72430622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.75, y: 0.58, z: -2.5}
+  m_LocalPosition: {x: -4.25, y: 0.5, z: -10.5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 145287524}
@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 72430630}
+  m_Graph: {fileID: 1740409186}
 --- !u!114 &72430628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7f91ca20e49f846bffa3ef828b3a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seenDistance: 8
+  seenDistance: 9
 --- !u!114 &72430629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +298,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 500
