@@ -13,8 +13,10 @@ public class BotState : MonoBehaviour {
 	bool isSeeing;
 	public Transform Player;
 	PlayerCameraLook playerSees;
+	PlayerMovement sidePositions;
 	void Start () {
 		playerSees = Player.GetComponent<PlayerCameraLook>();
+		sidePositions = Player.GetComponent<PlayerMovement>();
 	}
 	public string GetWhoIsGunpointed() {
 		return playerSees.GetHitName();
@@ -70,4 +72,8 @@ public class BotState : MonoBehaviour {
 	public Vector3 GetPlayerPosition() {
 		return Player.position;
 	}
+	public List<Vector3> GetSidePositins() {
+		return sidePositions.GetSidePositins();
+	}
+	
 }

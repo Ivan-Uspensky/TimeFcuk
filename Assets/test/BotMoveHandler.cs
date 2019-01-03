@@ -11,9 +11,11 @@ public class BotMoveHandler : MonoBehaviour {
 	Vector3 prevTargetPosition;
 	int m_PathCurrent;
 	Vector3 longest;
+	Vector3 actualCoverPoint;
 	Node start;
 	Node end;
 	Path m_Path = new Path();
+	
 	void Start () {
 		State = GetComponent<BotState>();
 		m_PathCurrent = 0;
@@ -23,7 +25,7 @@ public class BotMoveHandler : MonoBehaviour {
 		// if (State.GetSeeing()) {
 			//  ----   agent.SetDestination(State.GetPlayerPosition());
 			CoversGetPath(State.GetPlayerPosition());
-			// CoversMovement();
+			CoversMovement();
 		// } else {
 		// 	agent.ResetPath();
 		// }
@@ -49,6 +51,19 @@ public class BotMoveHandler : MonoBehaviour {
 		}
 		return nearest;
 	}
+	void CoversMovement() {
+		actualCoverPoint = GetCoverSide(m_Path.nodes[m_PathCurrent]);
+		actualCoverPoint.y = 0.25f;
+		agent.SetDestination(actualCoverPoint);
+		// Debug.Log("actualCoverPoint: " + (transform.position - actualCoverPoint).sqrMagnitude);
+		// Debug.Log("m_PathCurrent: " + m_PathCurrent + "m_Path.nodes: " + m_Path.nodes.Count);
+		
+		if ((transform.position - actualCoverPoint).sqrMagnitude <= 1.2f) {
+			if (m_PathCurrent < m_Path.nodes.Count - 1) {
+				m_PathCurrent++;
+			}
+		}
+	}
 	// void CoversMovement() {
 	// 	Vector3 actualCoverPoint = GetCoverSide(m_Path.nodes[m_PathCurrent]);
 	// 	agent.SetDestination(actualCoverPoint);
@@ -58,18 +73,24 @@ public class BotMoveHandler : MonoBehaviour {
 	// 		}
 	// 	}
 	// }
-	// Vector3 GetCoverSide(Node node) {
-	// 	List<Vector3> coverPoints = node.getCoverPoints();
-	// 	longest = new Vector3(0,0,0);
-	// 	float longestDist = 0;
-	// 	foreach (Vector3 cover in coverPoints) {
-	// 		if ((State.GetPlayerPosition() - cover).sqrMagnitude >= longestDist) {
-	// 			longestDist = (State.GetPlayerPosition() - cover).sqrMagnitude;
-	// 			longest = cover;
-	// 		}
-	// 	}
-	// 	return longest;
-	// }
+	Vector3 GetCoverSide(Node node) {
+		List<Vector3> coverPoints = node.getCoverPoints();
+		foreach (Vector3 cover in coverPoints) {
+			Debug.Log("coverPoint : " + cover);
+		}
+		// for (int i = 0; i < coverPoints.Count - 1; i++ ) {
+		// 	Debug.Log(i + " coverPoint: " + coverPoints[i]);
+		// }
+		longest = new Vector3(0,0,0);
+		float longestDist = 0;
+		foreach (Vector3 cover in coverPoints) {
+			if ((State.GetPlayerPosition() - cover).sqrMagnitude >= longestDist) {
+				longestDist = (State.GetPlayerPosition() - cover).sqrMagnitude;
+				longest = cover;
+			}
+		}
+		return longest;
+	}
 
 	void OnDrawGizmos() {
   	Handles.color = Color.green;
@@ -78,6 +99,8 @@ public class BotMoveHandler : MonoBehaviour {
 			Handles.DrawLine(currentPos, node.transform.position);
 			currentPos = node.transform.position;
 		}
+		Gizmos.color = Color.red;
+    Gizmos.DrawSphere(actualCoverPoint, 0.35f);
   }
 
 }

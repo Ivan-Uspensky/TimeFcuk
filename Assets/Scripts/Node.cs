@@ -12,9 +12,9 @@ public class Node : MonoBehaviour {
 		}
 	}
 	List<Vector3> coverPoints;
-	public Node this [ int index ] {
+	public Node this [int index] {
 		get {
-			return m_Connections [ index ];
+			return m_Connections[index];
 		}
 	}
 	void Start () {
@@ -29,8 +29,8 @@ public class Node : MonoBehaviour {
     Gizmos.color = Color.green;
     Gizmos.DrawSphere(transform.position, 0.25f);
   }
-	void CountChildren(Transform a) {
-		foreach (Transform child in a) {
+	void CountChildren(Transform children) {
+		foreach (Transform child in children.GetChild(0)) {
 			coverPoints.Add(child.position);
 		}
   }
