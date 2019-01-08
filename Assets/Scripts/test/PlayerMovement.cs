@@ -14,8 +14,9 @@ public class PlayerMovement : MonoBehaviour {
 	public Vector2 verticalLookMinMax;
 	public Transform cam;
 	public float strafeHeadAngle;
-	public List<Node> nodes;
+	public List<Transform> nodes;
 	public LayerMask layerMask;
+	public float distanceToActiveNode;
 	CharacterController controller;
 	GunHandler gunController;
 	float pitch;
@@ -86,29 +87,29 @@ public class PlayerMovement : MonoBehaviour {
       gunController.Shoot();
     }
 
-		if (Physics.Raycast(transform.position, transform.forward, out hit, 15, layerMask)) {
-			nodes[0].transform.position = hit.point;
+		if (Physics.Raycast(transform.position, transform.forward, out hit, distanceToActiveNode, layerMask)) {
+			nodes[0].position = hit.point;
 		} else {
 			transform.rotation.ToAngleAxis(out angle, out axis);
-      nodes[0].transform.position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.forward * 15;
+      nodes[0].position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.forward * distanceToActiveNode;
 		}
-    if (Physics.Raycast(transform.position, transform.right, out hit, 100, layerMask)) {
-			nodes[1].transform.position = hit.point;
+    if (Physics.Raycast(transform.position, transform.right, out hit, distanceToActiveNode, layerMask)) {
+			nodes[1].position = hit.point;
 		} else {
 			transform.rotation.ToAngleAxis(out angle, out axis);
-      nodes[1].transform.position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.right * 15;
+      nodes[1].position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.right * distanceToActiveNode;
 		}
-		if (Physics.Raycast(transform.position, -transform.right, out hit, 100, layerMask)) {
-			nodes[2].transform.position = hit.point;
+		if (Physics.Raycast(transform.position, -transform.right, out hit, distanceToActiveNode, layerMask)) {
+			nodes[2].position = hit.point;
 		} else {
 			transform.rotation.ToAngleAxis(out angle, out axis);
-      nodes[2].transform.position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.left * 15;
+      nodes[2].position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.left * distanceToActiveNode;
 		}
-		if (Physics.Raycast(transform.position, -transform.forward, out hit, 100, layerMask)) {
-			nodes[3].transform.position = hit.point;
+		if (Physics.Raycast(transform.position, -transform.forward, out hit, distanceToActiveNode, layerMask)) {
+			nodes[3].position = hit.point;
 		} else {
 			transform.rotation.ToAngleAxis(out angle, out axis);
-      nodes[3].transform.position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.back * 15;
+      nodes[3].position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.back * distanceToActiveNode;
 		}
 	}
 	public List<Vector3> GetSidePositins() {

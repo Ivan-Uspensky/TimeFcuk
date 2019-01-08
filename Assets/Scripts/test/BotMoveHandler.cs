@@ -25,7 +25,7 @@ public class BotMoveHandler : MonoBehaviour {
 		// if (State.GetSeeing()) {
 			//  ----   agent.SetDestination(State.GetPlayerPosition());
 			CoversGetPath(State.GetPlayerPosition());
-			CoversMovement();
+			// CoversMovement();
 		// } else {
 		// 	agent.ResetPath();
 		// }

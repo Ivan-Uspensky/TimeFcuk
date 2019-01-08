@@ -16,6 +16,8 @@ public class Bullet : MonoBehaviour {
 	float tempTimer;
 	float tempDistance;
 	bool isReflected;
+	float randomState;
+	int minRandomState;
 	void Start () {
 		Destroy (gameObject, lifetime);
 		spreadVector = new Vector3(Random.Range (-spreadRange, spreadRange), Random.Range (-spreadRange, spreadRange), 1);
@@ -27,6 +29,7 @@ public class Bullet : MonoBehaviour {
 		// mesh = GetComponent<MeshRenderer>();
 		tempTimer = 0;
 		tempDistance = 0;
+		minRandomState = 75;
 	}
 	void Update () {
 		if (speed == 0) {
@@ -48,7 +51,9 @@ public class Bullet : MonoBehaviour {
 		}
 	}
 	void OnHitObject(Collider c, Vector3 hitPoint, Vector3 hitNormal, Ray ray) {
-		if (isReflected) {
+		randomState = Random.Range(0f, 100.0f);
+		Debug.Log(randomState);
+		if (isReflected || randomState < minRandomState) {
 			speed = 0;
 		} else {
 			Vector3	reflectDir = Vector3.Reflect(ray.direction, hitNormal);
