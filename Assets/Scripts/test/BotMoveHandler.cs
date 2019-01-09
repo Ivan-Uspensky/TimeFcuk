@@ -25,7 +25,7 @@ public class BotMoveHandler : MonoBehaviour {
 		// if (State.GetSeeing()) {
 			//  ----   agent.SetDestination(State.GetPlayerPosition());
 			CoversGetPath(State.GetPlayerPosition());
-			// CoversMovement();
+			CoversMovement();
 		// } else {
 		// 	agent.ResetPath();
 		// }
@@ -35,6 +35,7 @@ public class BotMoveHandler : MonoBehaviour {
 			start = GetNearestCover(transform.position);
 			end = GetNearestCover(whereToGo);
 			m_Path = m_Graph.GetShortestPath(start, end);
+			m_PathCurrent = 0;
 			prevTargetPosition = whereToGo;
 		}
 	}
@@ -55,29 +56,16 @@ public class BotMoveHandler : MonoBehaviour {
 		actualCoverPoint = GetCoverSide(m_Path.nodes[m_PathCurrent]);
 		actualCoverPoint.y = 0.25f;
 		agent.SetDestination(actualCoverPoint);
-		// Debug.Log("actualCoverPoint: " + (transform.position - actualCoverPoint).sqrMagnitude);
-		// Debug.Log("m_PathCurrent: " + m_PathCurrent + "m_Path.nodes: " + m_Path.nodes.Count);
 		
-		if ((transform.position - actualCoverPoint).sqrMagnitude <= 1.2f) {
+		if ((transform.position - actualCoverPoint).sqrMagnitude <= 0.25f) {
+			agent.ResetPath();
 			if (m_PathCurrent < m_Path.nodes.Count - 1) {
 				m_PathCurrent++;
 			}
 		}
 	}
-	// void CoversMovement() {
-	// 	Vector3 actualCoverPoint = GetCoverSide(m_Path.nodes[m_PathCurrent]);
-	// 	agent.SetDestination(actualCoverPoint);
-	// 	if ((transform.position - actualCoverPoint).sqrMagnitude <= 1) {
-	// 		if (m_PathCurrent < m_Path.nodes.Count - 1) {
-	// 			m_PathCurrent++;
-	// 		}
-	// 	}
-	// }
 	Vector3 GetCoverSide(Node node) {
 		List<Vector3> coverPoints = node.getCoverPoints();
-		foreach (Vector3 cover in coverPoints) {
-			Debug.Log("coverPoint : " + cover);
-		}
 		// for (int i = 0; i < coverPoints.Count - 1; i++ ) {
 		// 	Debug.Log(i + " coverPoint: " + coverPoints[i]);
 		// }
@@ -91,13 +79,12 @@ public class BotMoveHandler : MonoBehaviour {
 		}
 		return longest;
 	}
-
 	void OnDrawGizmos() {
   	Handles.color = Color.green;
 		Vector3 currentPos = transform.position;
-		foreach (Node node in m_Path.nodes) {
-			Handles.DrawLine(currentPos, node.transform.position);
-			currentPos = node.transform.position;
+		for (int i = m_PathCurrent; i < m_Path.nodes.Count - 1; i++ ) {
+			Handles.DrawLine(currentPos, m_Path.nodes[i].transform.position);
+			currentPos = m_Path.nodes[i].transform.position;
 		}
 		Gizmos.color = Color.red;
     Gizmos.DrawSphere(actualCoverPoint, 0.35f);
