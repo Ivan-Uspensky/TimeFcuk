@@ -93,31 +93,35 @@ public class PlayerMovement : MonoBehaviour {
 			transform.rotation.ToAngleAxis(out angle, out axis);
       nodes[0].position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.forward * distanceToActiveNode;
 		}
+		nodes[0].position = new Vector3 (nodes[0].position.x, 0.25f, nodes[0].position.z);
     if (Physics.Raycast(transform.position, transform.right, out hit, distanceToActiveNode, layerMask)) {
 			nodes[1].position = hit.point;
 		} else {
 			transform.rotation.ToAngleAxis(out angle, out axis);
       nodes[1].position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.right * distanceToActiveNode;
 		}
+		nodes[1].position = new Vector3 (nodes[1].position.x, 0.25f, nodes[1].position.z);
 		if (Physics.Raycast(transform.position, -transform.right, out hit, distanceToActiveNode, layerMask)) {
 			nodes[2].position = hit.point;
 		} else {
 			transform.rotation.ToAngleAxis(out angle, out axis);
       nodes[2].position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.left * distanceToActiveNode;
 		}
+		nodes[2].position = new Vector3 (nodes[2].position.x, 0.25f, nodes[2].position.z);
 		if (Physics.Raycast(transform.position, -transform.forward, out hit, distanceToActiveNode, layerMask)) {
 			nodes[3].position = hit.point;
 		} else {
 			transform.rotation.ToAngleAxis(out angle, out axis);
       nodes[3].position = transform.position + Quaternion.AngleAxis(angle, axis) * Vector3.back * distanceToActiveNode;
 		}
+		nodes[3].position = new Vector3 (nodes[3].position.x, 0.25f, nodes[3].position.z);
 	}
 	public List<Vector3> GetSidePositins() {
 		List<Vector3> sidePositions = new List<Vector3>();
-		sidePositions[0] = nodes[0].transform.position;
-		sidePositions[1] = nodes[1].transform.position;
-		sidePositions[2] = nodes[2].transform.position;
-		sidePositions[3] = nodes[3].transform.position;
+		sidePositions[0] = nodes[0].position;
+		sidePositions[1] = nodes[1].position;
+		sidePositions[2] = nodes[2].position;
+		sidePositions[3] = nodes[3].position;
 
 		return sidePositions;
 	}

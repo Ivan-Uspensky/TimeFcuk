@@ -1282,6 +1282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce7f83eb733826468a0ce30d4cb6da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCustomColor: 1
+  customColor: {r: 1, g: 0.9831489, b: 0, a: 1}
 --- !u!1001 &291941603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1887,6 +1889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce7f83eb733826468a0ce30d4cb6da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCustomColor: 1
+  customColor: {r: 0, g: 1, b: 0.037703037, a: 1}
 --- !u!1 &700151362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,6 +2766,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce7f83eb733826468a0ce30d4cb6da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCustomColor: 1
+  customColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1094457345
 GameObject:
   m_ObjectHideFlags: 0
@@ -3533,6 +3539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce7f83eb733826468a0ce30d4cb6da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCustomColor: 1
+  customColor: {r: 0, g: 0.11251116, b: 1, a: 1}
 --- !u!1001 &1391549406
 PrefabInstance:
   m_ObjectHideFlags: 0
