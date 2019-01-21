@@ -31,10 +31,17 @@ public class BotMoveHandler : MonoBehaviour {
 		// }
 	}
 	void CoversGetPath(Vector3 whereToGo) {
-		if (whereToGo != prevTargetPosition) {
-			start = GetNearestCover(transform.position);
+		if ((whereToGo - prevTargetPosition).sqrMagnitude >= 0.562f) {
+			// StartCoroutine(CalculatePath(whereToGo));
 			end = GetNearestCover(whereToGo);
-			m_Path = m_Graph.GetShortestPath(start, end);
+			// if (m_PathCurrent != 0 && m_PathCurrent < m_Path.nodes.Count - 1) {
+			if (m_PathCurrent < m_Path.nodes.Count - 2) {
+				m_Path = m_Graph.GetShortestPath(m_Path.nodes[m_PathCurrent], end);
+			} else {
+				start = GetNearestCover(transform.position);
+				m_Path = m_Graph.GetShortestPath(start, end);
+			}
+			
 			m_PathCurrent = 0;
 			prevTargetPosition = whereToGo;
 		}
@@ -42,8 +49,8 @@ public class BotMoveHandler : MonoBehaviour {
 	Node GetNearestCover(Vector3 toObject) {
 		float dist = 1000;
 		float temp = 0;
-		Node nearest = m_Graph.nodes[m_Graph.nodes.Count - 1];
-		for (int i = 0; i < m_Graph.nodes.Count - 1; i++ ) {
+		Node nearest = m_Graph.nodes[m_Graph.nodes.Count - 2];
+		for (int i = 0; i < m_Graph.nodes.Count - 2; i++ ) {
 			temp = (toObject - m_Graph.nodes[i].transform.position).sqrMagnitude;
 			if (temp < dist) {
 				dist = temp;
@@ -57,18 +64,15 @@ public class BotMoveHandler : MonoBehaviour {
 		actualCoverPoint.y = 0.25f;
 		agent.SetDestination(actualCoverPoint);
 		
-		if ((transform.position - actualCoverPoint).sqrMagnitude <= 0.25f) {
+		if ((transform.position - actualCoverPoint).sqrMagnitude <= 0.36f) {
 			agent.ResetPath();
-			if (m_PathCurrent < m_Path.nodes.Count - 1) {
+			if (m_PathCurrent < m_Path.nodes.Count - 2) {
 				m_PathCurrent++;
 			}
 		}
 	}
 	Vector3 GetCoverSide(Node node) {
 		List<Vector3> coverPoints = node.getCoverPoints();
-		// for (int i = 0; i < coverPoints.Count - 1; i++ ) {
-		// 	Debug.Log(i + " coverPoint: " + coverPoints[i]);
-		// }
 		longest = new Vector3(0,0,0);
 		float longestDist = 0;
 		foreach (Vector3 cover in coverPoints) {
