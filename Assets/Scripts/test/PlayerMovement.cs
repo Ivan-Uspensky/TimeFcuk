@@ -116,14 +116,15 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		nodes[3].position = new Vector3 (nodes[3].position.x, 0.25f, nodes[3].position.z);
 	}
-	public List<Vector3> GetSidePositins() {
-		List<Vector3> sidePositions = new List<Vector3>();
-		sidePositions[0] = nodes[0].position;
-		sidePositions[1] = nodes[1].position;
-		sidePositions[2] = nodes[2].position;
-		sidePositions[3] = nodes[3].position;
+	public List<Transform> GetSidePositins() {
+		// List<Vector3> sidePositions = new List<Vector3>();
+		// sidePositions[0] = nodes[0].position;
+		// sidePositions[1] = nodes[1].position;
+		// sidePositions[2] = nodes[2].position;
+		// sidePositions[3] = nodes[3].position;
 
-		return sidePositions;
+		// return sidePositions;
+		return nodes;
 	}
 	
 }

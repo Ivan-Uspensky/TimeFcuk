@@ -15,11 +15,13 @@ public class BotMoveHandler : MonoBehaviour {
 	Node start;
 	Node end;
 	Path m_Path = new Path();
+	int sidePositionCounter;
 	
 	void Start () {
 		State = GetComponent<BotState>();
 		m_PathCurrent = 0;
 		prevTargetPosition = new Vector3(0,0,0);
+		sidePositionCounter = 0;
 	}
 	void Update () {
 		// if (State.GetSeeing()) {
@@ -32,16 +34,13 @@ public class BotMoveHandler : MonoBehaviour {
 	}
 	void CoversGetPath(Vector3 whereToGo) {
 		if ((whereToGo - prevTargetPosition).sqrMagnitude >= 0.562f) {
-			// StartCoroutine(CalculatePath(whereToGo));
 			end = GetNearestCover(whereToGo);
-			// if (m_PathCurrent != 0 && m_PathCurrent < m_Path.nodes.Count - 1) {
 			if (m_PathCurrent < m_Path.nodes.Count - 2) {
 				m_Path = m_Graph.GetShortestPath(m_Path.nodes[m_PathCurrent], end);
 			} else {
 				start = GetNearestCover(transform.position);
 				m_Path = m_Graph.GetShortestPath(start, end);
 			}
-			
 			m_PathCurrent = 0;
 			prevTargetPosition = whereToGo;
 		}
@@ -65,10 +64,16 @@ public class BotMoveHandler : MonoBehaviour {
 		agent.SetDestination(actualCoverPoint);
 		
 		if ((transform.position - actualCoverPoint).sqrMagnitude <= 0.36f) {
-			agent.ResetPath();
+			// agent.ResetPath();
 			if (m_PathCurrent < m_Path.nodes.Count - 2) {
 				m_PathCurrent++;
+			} else {
+				List<Transform> positions = State.GetSidePositins();
+				// Debug.Log(State.GetSidePositins()[0].position);
+				agent.SetDestination(positions[sidePositionCounter].position);
 			}
+			
+			
 		}
 	}
 	Vector3 GetCoverSide(Node node) {

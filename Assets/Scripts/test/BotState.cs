@@ -73,7 +73,8 @@ public class BotState : MonoBehaviour {
 	public Vector3 GetPlayerPosition() {
 		return Player.position;
 	}
-	public List<Vector3> GetSidePositins() {
+	public List<Transform> GetSidePositins() {
+		Debug.Log(sidePositions.GetSidePositins());
 		return sidePositions.GetSidePositins();
 	}
 	

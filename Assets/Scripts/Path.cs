@@ -36,6 +36,10 @@ public class Path {
 		}
 	}
 
+	public void Add(Node element) {
+		m_Nodes.Add(element);
+	}
+
 	public override string ToString () {
 		return string.Format (
 			"Nodes: {0}\nLength: {1}",
